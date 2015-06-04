@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CB3D309DA1749E9D03F3CDD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15819F5417A752D2B8144E5C /* libPods.a */; };
 		B4A08CB21B1793A6006B0178 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB11B1793A6006B0178 /* main.m */; };
 		B4A08CB51B1793A6006B0178 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB41B1793A6006B0178 /* AppDelegate.m */; };
-		B4A08CB81B1793A6006B0178 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB71B1793A6006B0178 /* ViewController.m */; };
+		B4A08CB81B1793A6006B0178 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB71B1793A6006B0178 /* LoginViewController.m */; };
 		B4A08CBB1B1793A6006B0178 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4A08CB91B1793A6006B0178 /* Main.storyboard */; };
 		B4A08CBD1B1793A6006B0178 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4A08CBC1B1793A6006B0178 /* Images.xcassets */; };
 		B4A08CC01B1793A6006B0178 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A08CBE1B1793A6006B0178 /* LaunchScreen.xib */; };
 		B4A08CCC1B1793A6006B0178 /* TechRecruitingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CCB1B1793A6006B0178 /* TechRecruitingTests.m */; };
+		B4A08CD71B17B14E006B0178 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CD61B17B14E006B0178 /* RegistrationViewController.m */; };
+		B4A08CDA1B17B16B006B0178 /* ProspectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CD91B17B16B006B0178 /* ProspectListViewController.m */; };
+		B4A08CDD1B17B186006B0178 /* ProspectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CDC1B17B186006B0178 /* ProspectDetailViewController.m */; };
+		B4A08CE01B17B19F006B0178 /* MessagesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CDF1B17B19F006B0178 /* MessagesListViewController.m */; };
+		B4A08CE31B17B1B6006B0178 /* CallLogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CE21B17B1B6006B0178 /* CallLogListViewController.m */; };
+		B4A08CE61B17B1E1006B0178 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CE51B17B1E1006B0178 /* MessageDetailViewController.m */; };
+		B4A08CE91B17B1F3006B0178 /* CallLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CE81B17B1F3006B0178 /* CallLogDetailViewController.m */; };
+		B4A08CF31B18B15B006B0178 /* Prospect.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CF21B18B15B006B0178 /* Prospect.m */; };
+		B4A08CF61B18B19B006B0178 /* Call.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CF51B18B19B006B0178 /* Call.m */; };
+		B4A08CF91B18B1AF006B0178 /* Email.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CF81B18B1AF006B0178 /* Email.m */; };
+		B4A08CFC1B18C30B006B0178 /* AddProspectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CFB1B18C30B006B0178 /* AddProspectViewController.m */; };
+		B4A08CFF1B18F78A006B0178 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */; };
+		B4F38DF61B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */; };
+		B4F38DF81B1FBDEE00A5BEE5 /* lightReadGradient.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B4F38DF71B1FBDEE00A5BEE5 /* lightReadGradient.jpeg */; };
+		B4F38DFA1B1FDEA900A5BEE5 /* NutechLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +43,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1481AE323BA6512488D21C27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		15819F5417A752D2B8144E5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		212CDE7C882CA78211BE5D35 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B4A08CAC1B1793A6006B0178 /* TechRecruiting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechRecruiting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A08CB01B1793A6006B0178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A08CB11B1793A6006B0178 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4A08CB31B1793A6006B0178 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B4A08CB41B1793A6006B0178 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B4A08CB61B1793A6006B0178 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B4A08CB71B1793A6006B0178 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B4A08CB61B1793A6006B0178 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B4A08CB71B1793A6006B0178 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B4A08CBA1B1793A6006B0178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4A08CBC1B1793A6006B0178 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B4A08CBF1B1793A6006B0178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B4A08CC51B1793A6006B0178 /* TechRecruitingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechRecruitingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A08CCA1B1793A6006B0178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A08CCB1B1793A6006B0178 /* TechRecruitingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TechRecruitingTests.m; sourceTree = "<group>"; };
+		B4A08CD51B17B14E006B0178 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		B4A08CD61B17B14E006B0178 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		B4A08CD81B17B16B006B0178 /* ProspectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectListViewController.h; sourceTree = "<group>"; };
+		B4A08CD91B17B16B006B0178 /* ProspectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProspectListViewController.m; sourceTree = "<group>"; };
+		B4A08CDB1B17B186006B0178 /* ProspectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProspectDetailViewController.h; sourceTree = "<group>"; };
+		B4A08CDC1B17B186006B0178 /* ProspectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProspectDetailViewController.m; sourceTree = "<group>"; };
+		B4A08CDE1B17B19F006B0178 /* MessagesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesListViewController.h; sourceTree = "<group>"; };
+		B4A08CDF1B17B19F006B0178 /* MessagesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesListViewController.m; sourceTree = "<group>"; };
+		B4A08CE11B17B1B6006B0178 /* CallLogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallLogListViewController.h; sourceTree = "<group>"; };
+		B4A08CE21B17B1B6006B0178 /* CallLogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallLogListViewController.m; sourceTree = "<group>"; };
+		B4A08CE41B17B1E0006B0178 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		B4A08CE51B17B1E1006B0178 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
+		B4A08CE71B17B1F3006B0178 /* CallLogDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallLogDetailViewController.h; sourceTree = "<group>"; };
+		B4A08CE81B17B1F3006B0178 /* CallLogDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallLogDetailViewController.m; sourceTree = "<group>"; };
+		B4A08CF11B18B15B006B0178 /* Prospect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prospect.h; sourceTree = "<group>"; };
+		B4A08CF21B18B15B006B0178 /* Prospect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prospect.m; sourceTree = "<group>"; };
+		B4A08CF41B18B19B006B0178 /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
+		B4A08CF51B18B19B006B0178 /* Call.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Call.m; sourceTree = "<group>"; };
+		B4A08CF71B18B1AF006B0178 /* Email.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Email.h; sourceTree = "<group>"; };
+		B4A08CF81B18B1AF006B0178 /* Email.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Email.m; sourceTree = "<group>"; };
+		B4A08CFA1B18C30B006B0178 /* AddProspectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProspectViewController.h; sourceTree = "<group>"; };
+		B4A08CFB1B18C30B006B0178 /* AddProspectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProspectViewController.m; sourceTree = "<group>"; };
+		B4A08CFD1B18F78A006B0178 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		B4F38DF41B1F89D700A5BEE5 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = offWhiteGradientBG.jpg; sourceTree = "<group>"; };
+		B4F38DF71B1FBDEE00A5BEE5 /* lightReadGradient.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lightReadGradient.jpeg; sourceTree = "<group>"; };
+		B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NutechLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB3D309DA1749E9D03F3CDD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +108,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1001236FC975796837FFE6AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				212CDE7C882CA78211BE5D35 /* Pods.debug.xcconfig */,
+				1481AE323BA6512488D21C27 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		976BA250C4A99358673ADAA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15819F5417A752D2B8144E5C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B4A08CA31B1793A6006B0178 = {
 			isa = PBXGroup;
 			children = (
 				B4A08CAE1B1793A6006B0178 /* TechRecruiting */,
 				B4A08CC81B1793A6006B0178 /* TechRecruitingTests */,
 				B4A08CAD1B1793A6006B0178 /* Products */,
+				1001236FC975796837FFE6AE /* Pods */,
+				976BA250C4A99358673ADAA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,8 +150,36 @@
 			children = (
 				B4A08CB31B1793A6006B0178 /* AppDelegate.h */,
 				B4A08CB41B1793A6006B0178 /* AppDelegate.m */,
-				B4A08CB61B1793A6006B0178 /* ViewController.h */,
-				B4A08CB71B1793A6006B0178 /* ViewController.m */,
+				B4A08CFD1B18F78A006B0178 /* MBProgressHUD.h */,
+				B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */,
+				B4F38DF41B1F89D700A5BEE5 /* Defines.h */,
+				B4A08CF11B18B15B006B0178 /* Prospect.h */,
+				B4A08CF21B18B15B006B0178 /* Prospect.m */,
+				B4A08CF41B18B19B006B0178 /* Call.h */,
+				B4A08CF51B18B19B006B0178 /* Call.m */,
+				B4A08CF71B18B1AF006B0178 /* Email.h */,
+				B4A08CF81B18B1AF006B0178 /* Email.m */,
+				B4A08CB61B1793A6006B0178 /* LoginViewController.h */,
+				B4A08CB71B1793A6006B0178 /* LoginViewController.m */,
+				B4A08CD51B17B14E006B0178 /* RegistrationViewController.h */,
+				B4A08CD61B17B14E006B0178 /* RegistrationViewController.m */,
+				B4A08CFA1B18C30B006B0178 /* AddProspectViewController.h */,
+				B4A08CFB1B18C30B006B0178 /* AddProspectViewController.m */,
+				B4A08CD81B17B16B006B0178 /* ProspectListViewController.h */,
+				B4A08CD91B17B16B006B0178 /* ProspectListViewController.m */,
+				B4A08CDB1B17B186006B0178 /* ProspectDetailViewController.h */,
+				B4A08CDC1B17B186006B0178 /* ProspectDetailViewController.m */,
+				B4A08CDE1B17B19F006B0178 /* MessagesListViewController.h */,
+				B4A08CDF1B17B19F006B0178 /* MessagesListViewController.m */,
+				B4A08CE11B17B1B6006B0178 /* CallLogListViewController.h */,
+				B4A08CE21B17B1B6006B0178 /* CallLogListViewController.m */,
+				B4A08CE41B17B1E0006B0178 /* MessageDetailViewController.h */,
+				B4A08CE51B17B1E1006B0178 /* MessageDetailViewController.m */,
+				B4A08CE71B17B1F3006B0178 /* CallLogDetailViewController.h */,
+				B4A08CE81B17B1F3006B0178 /* CallLogDetailViewController.m */,
+				B4F38DF71B1FBDEE00A5BEE5 /* lightReadGradient.jpeg */,
+				B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */,
+				B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */,
 				B4A08CB91B1793A6006B0178 /* Main.storyboard */,
 				B4A08CBC1B1793A6006B0178 /* Images.xcassets */,
 				B4A08CBE1B1793A6006B0178 /* LaunchScreen.xib */,
@@ -126,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4A08CCF1B1793A6006B0178 /* Build configuration list for PBXNativeTarget "TechRecruiting" */;
 			buildPhases = (
+				F147339A77270A09D536C86B /* Check Pods Manifest.lock */,
 				B4A08CA81B1793A6006B0178 /* Sources */,
 				B4A08CA91B1793A6006B0178 /* Frameworks */,
 				B4A08CAA1B1793A6006B0178 /* Resources */,
+				0502E675F8EC54862FC637ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,9 +296,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F38DF81B1FBDEE00A5BEE5 /* lightReadGradient.jpeg in Resources */,
+				B4F38DF61B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg in Resources */,
 				B4A08CBB1B1793A6006B0178 /* Main.storyboard in Resources */,
 				B4A08CC01B1793A6006B0178 /* LaunchScreen.xib in Resources */,
 				B4A08CBD1B1793A6006B0178 /* Images.xcassets in Resources */,
+				B4F38DFA1B1FDEA900A5BEE5 /* NutechLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,14 +314,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0502E675F8EC54862FC637ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F147339A77270A09D536C86B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B4A08CA81B1793A6006B0178 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A08CB81B1793A6006B0178 /* ViewController.m in Sources */,
+				B4A08CE91B17B1F3006B0178 /* CallLogDetailViewController.m in Sources */,
+				B4A08CF91B18B1AF006B0178 /* Email.m in Sources */,
+				B4A08CFC1B18C30B006B0178 /* AddProspectViewController.m in Sources */,
+				B4A08CDA1B17B16B006B0178 /* ProspectListViewController.m in Sources */,
+				B4A08CB81B1793A6006B0178 /* LoginViewController.m in Sources */,
+				B4A08CF31B18B15B006B0178 /* Prospect.m in Sources */,
+				B4A08CD71B17B14E006B0178 /* RegistrationViewController.m in Sources */,
+				B4A08CFF1B18F78A006B0178 /* MBProgressHUD.m in Sources */,
+				B4A08CE61B17B1E1006B0178 /* MessageDetailViewController.m in Sources */,
+				B4A08CDD1B17B186006B0178 /* ProspectDetailViewController.m in Sources */,
 				B4A08CB51B1793A6006B0178 /* AppDelegate.m in Sources */,
 				B4A08CB21B1793A6006B0178 /* main.m in Sources */,
+				B4A08CF61B18B19B006B0178 /* Call.m in Sources */,
+				B4A08CE01B17B19F006B0178 /* MessagesListViewController.m in Sources */,
+				B4A08CE31B17B1B6006B0178 /* CallLogListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +490,7 @@
 		};
 		B4A08CD01B1793A6006B0178 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 212CDE7C882CA78211BE5D35 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
@@ -355,6 +501,7 @@
 		};
 		B4A08CD11B1793A6006B0178 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1481AE323BA6512488D21C27 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
@@ -416,6 +563,7 @@
 				B4A08CD11B1793A6006B0178 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4A08CD21B1793A6006B0178 /* Build configuration list for PBXNativeTarget "TechRecruitingTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +572,7 @@
 				B4A08CD41B1793A6006B0178 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
