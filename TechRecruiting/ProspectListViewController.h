@@ -12,6 +12,6 @@
 
 @interface ProspectListViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *prospects;
+@property (strong, nonatomic) NSMutableArray *prospects;
 
 @end

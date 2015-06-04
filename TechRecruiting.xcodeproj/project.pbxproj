@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2CB3D309DA1749E9D03F3CDD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15819F5417A752D2B8144E5C /* libPods.a */; };
+		B40626A61B20B75900CCD7DD /* Nutech29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A11B20B75900CCD7DD /* Nutech29@3x.png */; };
+		B40626A71B20B75900CCD7DD /* Nutech40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A21B20B75900CCD7DD /* Nutech40@2x.png */; };
+		B40626A81B20B75900CCD7DD /* Nutech40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A31B20B75900CCD7DD /* Nutech40@3x.png */; };
+		B40626A91B20B75900CCD7DD /* Nutech60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A41B20B75900CCD7DD /* Nutech60@3x.png */; };
+		B40626AA1B20B75900CCD7DD /* Nutech29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A51B20B75900CCD7DD /* Nutech29@2x.png */; };
 		B4A08CB21B1793A6006B0178 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB11B1793A6006B0178 /* main.m */; };
 		B4A08CB51B1793A6006B0178 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB41B1793A6006B0178 /* AppDelegate.m */; };
 		B4A08CB81B1793A6006B0178 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB71B1793A6006B0178 /* LoginViewController.m */; };
@@ -46,6 +51,11 @@
 		1481AE323BA6512488D21C27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		15819F5417A752D2B8144E5C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		212CDE7C882CA78211BE5D35 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B40626A11B20B75900CCD7DD /* Nutech29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech29@3x.png"; sourceTree = "<group>"; };
+		B40626A21B20B75900CCD7DD /* Nutech40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech40@2x.png"; sourceTree = "<group>"; };
+		B40626A31B20B75900CCD7DD /* Nutech40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech40@3x.png"; sourceTree = "<group>"; };
+		B40626A41B20B75900CCD7DD /* Nutech60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech60@3x.png"; sourceTree = "<group>"; };
+		B40626A51B20B75900CCD7DD /* Nutech29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech29@2x.png"; sourceTree = "<group>"; };
 		B4A08CAC1B1793A6006B0178 /* TechRecruiting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechRecruiting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A08CB01B1793A6006B0178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A08CB11B1793A6006B0178 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -178,6 +188,11 @@
 				B4A08CE71B17B1F3006B0178 /* CallLogDetailViewController.h */,
 				B4A08CE81B17B1F3006B0178 /* CallLogDetailViewController.m */,
 				B4F38DF71B1FBDEE00A5BEE5 /* lightReadGradient.jpeg */,
+				B40626A11B20B75900CCD7DD /* Nutech29@3x.png */,
+				B40626A21B20B75900CCD7DD /* Nutech40@2x.png */,
+				B40626A31B20B75900CCD7DD /* Nutech40@3x.png */,
+				B40626A41B20B75900CCD7DD /* Nutech60@3x.png */,
+				B40626A51B20B75900CCD7DD /* Nutech29@2x.png */,
 				B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */,
 				B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */,
 				B4A08CB91B1793A6006B0178 /* Main.storyboard */,
@@ -265,6 +280,7 @@
 				TargetAttributes = {
 					B4A08CAB1B1793A6006B0178 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = NCUCU8Q7HZ;
 					};
 					B4A08CC41B1793A6006B0178 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -298,10 +314,15 @@
 			files = (
 				B4F38DF81B1FBDEE00A5BEE5 /* lightReadGradient.jpeg in Resources */,
 				B4F38DF61B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg in Resources */,
+				B40626A61B20B75900CCD7DD /* Nutech29@3x.png in Resources */,
+				B40626A81B20B75900CCD7DD /* Nutech40@3x.png in Resources */,
 				B4A08CBB1B1793A6006B0178 /* Main.storyboard in Resources */,
 				B4A08CC01B1793A6006B0178 /* LaunchScreen.xib in Resources */,
+				B40626AA1B20B75900CCD7DD /* Nutech29@2x.png in Resources */,
+				B40626A91B20B75900CCD7DD /* Nutech60@3x.png in Resources */,
 				B4A08CBD1B1793A6006B0178 /* Images.xcassets in Resources */,
 				B4F38DFA1B1FDEA900A5BEE5 /* NutechLogo.png in Resources */,
+				B40626A71B20B75900CCD7DD /* Nutech40@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,9 +514,12 @@
 			baseConfigurationReference = 212CDE7C882CA78211BE5D35 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -504,9 +528,12 @@
 			baseConfigurationReference = 1481AE323BA6512488D21C27 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

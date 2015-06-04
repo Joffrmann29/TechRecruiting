@@ -45,7 +45,7 @@
         
     [prospectQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
-            _prospects = objects;
+            _prospects = [objects mutableCopy];
             [self.tableView reloadData];
             NSLog(@"%@", _prospects);
         }
@@ -98,17 +98,22 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *prospect = _prospects[indexPath.row];
+//    PFACL *groupACL = [PFACL ACL];
+//    [groupACL setPublicWriteAccess:YES];
+//    prospect.ACL = groupACL;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [prospect deleteInBackground];
+        [self.prospects removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
