@@ -106,14 +106,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Prospects" id="sKf-qh-DK2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xad-ic-ITj">
+                        <barButtonItem key="rightBarButtonItem" image="MenuIcon.png" id="Xad-ic-ITj">
                             <connections>
-                                <segue destination="Bfc-qd-8Z3" kind="presentation" id="20L-4I-SNg"/>
+                                <action selector="viewOptions:" destination="cZK-CA-olt" id="e48-G2-cCu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="afb-Ng-frt" kind="show" identifier="toProspectDetail" id="r9b-jr-Xpe"/>
+                        <segue destination="Bfc-qd-8Z3" kind="presentation" identifier="toAddProspect" id="kyP-5D-dXT"/>
+                        <segue destination="Ngd-Ea-fjh" kind="show" identifier="toCallLog" id="V1y-Fq-iVu"/>
+                        <segue destination="MTA-YB-b4W" kind="show" identifier="toMessageLog" id="Oxl-18-FcR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hwo-LL-9XV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,7 +186,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
                     <connections>
-                        <segue destination="MTA-YB-b4W" kind="show" identifier="toMessages" id="IXB-JD-eW5"/>
+                        <segue destination="MTA-YB-b4W" kind="show" identifier="toMessageLog" id="IXB-JD-eW5"/>
                         <segue destination="Ngd-Ea-fjh" kind="show" identifier="toCallLog" id="SII-sO-ovd"/>
                     </connections>
                 </viewController>
@@ -191,12 +194,12 @@
             </objects>
             <point key="canvasLocation" x="2612" y="106"/>
         </scene>
-        <!--Call Log List View Controller-->
+        <!--Calls-->
         <scene sceneID="LPw-th-09j">
             <objects>
                 <tableViewController id="Ngd-Ea-fjh" customClass="CallLogListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e6H-qt-Cfs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -212,6 +215,7 @@
                             <outlet property="delegate" destination="Ngd-Ea-fjh" id="Sba-Ip-qMg"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Calls" id="yAi-3T-GLY"/>
                     <connections>
                         <segue destination="c3J-tF-MLh" kind="show" identifier="toCallDetail" id="aD5-Sm-gyV"/>
                     </connections>
@@ -229,7 +233,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hCx-27-SXn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8ss-9X-6dV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -243,7 +247,7 @@
             <objects>
                 <tableViewController id="MTA-YB-b4W" customClass="MessagesListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lzj-Bg-0bx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -277,7 +281,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ULw-iS-Ubg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UyC-sw-5U0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -349,4 +353,11 @@
             <point key="canvasLocation" x="430" y="-394"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MenuIcon.png" width="22" height="20"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Oxl-18-FcR"/>
+        <segue reference="V1y-Fq-iVu"/>
+    </inferredMetricsTieBreakers>
 </document>

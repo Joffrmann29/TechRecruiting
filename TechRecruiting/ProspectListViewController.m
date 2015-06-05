@@ -133,6 +133,23 @@
 }
 */
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        [self performSegueWithIdentifier:@"toAddProspect" sender:self];
+    }
+    
+    else if(buttonIndex == 1)
+    {
+        [self performSegueWithIdentifier:@"toCallLog" sender:self];
+    }
+    
+    else
+    {
+        [self performSegueWithIdentifier:@"toMessageLog" sender:self];
+    }
+}
 
 #pragma mark - Navigation
 
@@ -150,4 +167,8 @@
 }
 
 
+- (IBAction)viewOptions:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Add Prospect" otherButtonTitles:@"Call Log", @"E-mail Log", nil];
+    [actionSheet showInView:self.view];
+}
 @end

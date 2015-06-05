@@ -11,8 +11,9 @@
 #import "Defines.h"
 #import "ProspectDetailViewController.h"
 
-@interface ProspectListViewController : UITableViewController
+@interface ProspectListViewController : UITableViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *prospects;
 
+- (IBAction)viewOptions:(id)sender;
 @end

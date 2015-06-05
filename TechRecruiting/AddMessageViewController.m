@@ -22,8 +22,30 @@
     [self.view addSubview:_scrollView];
     self.scrollView.delegate = self;
     
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.2);
-    [self layoutForIphone6PlusWithContentSize:self.scrollView.contentSize];
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSLog(@"%@", [appDelegate platformString]);
+    if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
+        //call layout method for Iphone 6 Plus
+        [self layoutForIphone6PlusWithContentSize:self.scrollView.contentSize];
+    }
+    
+    else if([[appDelegate platformString]isEqualToString:@"iPhone7,2"]){
+        //call layout method for Iphone 6 Plus
+        [self layoutForIPhone6];
+    }
+    
+    else if([[appDelegate platformString]isEqualToString:@"iPhone 5"] || [[appDelegate platformString]isEqualToString:@"iPhone 5C"] || [[appDelegate platformString]isEqualToString:@"iPhone 5S"]){
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.8);
+        //call layout method for Iphone 5, 5C, and 5S
+        [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
+    }
+    
+    else
+    {
+        [self layoutForIPhone4S];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +58,128 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+-(void)layoutForIPhone4S
+{
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*2.2);
+    [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
+}
+
+-(void)layoutForIphone5WithContentSize:(CGSize)contentSize
+{
+    //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
+    
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
+    [_scrollView addSubview:_imgView];
+    
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
+    
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
+    _firstNameField.placeholder = @"First Name";
+    _firstNameField.textAlignment = NSTextAlignmentCenter;
+    _firstNameField.layer.borderWidth = 1.0;
+    _firstNameField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _firstNameField.layer.cornerRadius = 10.0;
+    _firstNameField.clipsToBounds = YES;
+    _firstNameField.backgroundColor = [UIColor whiteColor];
+    _firstNameField.text = _prospect[FirstName];
+    [_scrollView addSubview:_firstNameField];
+    
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _firstNameField.frame.origin.y+94, 255, 30)];
+    _emailField.placeholder = @"E-mail";
+    _emailField.textAlignment = NSTextAlignmentCenter;
+    _emailField.layer.borderWidth = 1.0;
+    _emailField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _emailField.layer.cornerRadius = 10.0;
+    _emailField.clipsToBounds = YES;
+    _emailField.backgroundColor = [UIColor whiteColor];
+    _emailField.text = _prospect[Email];
+    [_scrollView addSubview:_emailField];
+    
+    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 255, 30)];
+    _subjectField.placeholder = @"Subject";
+    _subjectField.textAlignment = NSTextAlignmentCenter;
+    _subjectField.layer.borderWidth = 1.0;
+    _subjectField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _subjectField.layer.cornerRadius = 10.0;
+    _subjectField.clipsToBounds = YES;
+    _subjectField.backgroundColor = [UIColor whiteColor];
+    [_scrollView addSubview:_subjectField];
+    
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _subjectField.frame.origin.y+94, 255, 200)];
+    _messageTextView.layer.borderWidth = 1.0;
+    _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _messageTextView.layer.cornerRadius = 10.0;
+    _messageTextView.clipsToBounds = YES;
+    _messageTextView.backgroundColor = [UIColor whiteColor];
+    _messageTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _messageTextView.text = @"Enter Message ...";
+    _messageTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_messageTextView];
+    
+    [self setTextFieldDelegates];
+}
+
+-(void)layoutForIPhone6
+{
+    //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
+    
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
+    [_scrollView addSubview:_imgView];
+    
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
+    
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
+    _firstNameField.placeholder = @"First Name";
+    _firstNameField.textAlignment = NSTextAlignmentCenter;
+    _firstNameField.layer.borderWidth = 1.0;
+    _firstNameField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _firstNameField.layer.cornerRadius = 10.0;
+    _firstNameField.clipsToBounds = YES;
+    _firstNameField.backgroundColor = [UIColor whiteColor];
+    _firstNameField.text = _prospect[FirstName];
+    [_scrollView addSubview:_firstNameField];
+    
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _firstNameField.frame.origin.y+94, 255, 30)];
+    _emailField.placeholder = @"E-mail";
+    _emailField.textAlignment = NSTextAlignmentCenter;
+    _emailField.layer.borderWidth = 1.0;
+    _emailField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _emailField.layer.cornerRadius = 10.0;
+    _emailField.clipsToBounds = YES;
+    _emailField.backgroundColor = [UIColor whiteColor];
+    _emailField.text = _prospect[Email];
+    [_scrollView addSubview:_emailField];
+    
+    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 255, 30)];
+    _subjectField.placeholder = @"Subject";
+    _subjectField.textAlignment = NSTextAlignmentCenter;
+    _subjectField.layer.borderWidth = 1.0;
+    _subjectField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _subjectField.layer.cornerRadius = 10.0;
+    _subjectField.clipsToBounds = YES;
+    _subjectField.backgroundColor = [UIColor whiteColor];
+    [_scrollView addSubview:_subjectField];
+    
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _subjectField.frame.origin.y+94, 255, 200)];
+    _messageTextView.layer.borderWidth = 1.0;
+    _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _messageTextView.layer.cornerRadius = 10.0;
+    _messageTextView.clipsToBounds = YES;
+    _messageTextView.backgroundColor = [UIColor whiteColor];
+    _messageTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _messageTextView.text = @"Enter Message ...";
+    _messageTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_messageTextView];
+    
+    [self setTextFieldDelegates];
 }
 
 -(void)layoutForIphone6PlusWithContentSize:(CGSize)contentSize
@@ -73,7 +217,7 @@
     [_scrollView addSubview:_emailField];
     
     _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 294, 30)];
-    _subjectField.placeholder = @"E-mail";
+    _subjectField.placeholder = @"Subject";
     _subjectField.textAlignment = NSTextAlignmentCenter;
     _subjectField.layer.borderWidth = 1.0;
     _subjectField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -90,6 +234,7 @@
     _messageTextView.backgroundColor = [UIColor whiteColor];
     _messageTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
      _messageTextView.text = @"Enter Message ...";
+    _messageTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     [_scrollView addSubview:_messageTextView];
     
     [self setTextFieldDelegates];
@@ -106,7 +251,7 @@
     else return YES;
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
+-(void)textViewDidBeginEditing:(UITextView *)textView
 {
     _messageTextView.text = nil;
 }

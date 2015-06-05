@@ -97,12 +97,22 @@
     [_scrollView addSubview:_secondaryCallButton];
     
     _emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _emailButton.frame = CGRectMake(354, _emailLabel.frame.origin.y, 48, 48);
+    _emailButton.frame = CGRectMake(_prospectTextView.frame.origin.x, 900, 100, 48);
     _emailButton.layer.cornerRadius = 10;
     [_emailButton setClipsToBounds:YES];
-    [_emailButton addTarget:self action:@selector(addMessageForSend:) forControlEvents:UIControlEventTouchUpInside];
-    [_emailButton setBackgroundImage:[UIImage imageNamed:@"Email.png"] forState:UIControlStateNormal];
+    [_emailButton addTarget:self action:@selector(viewEmails:) forControlEvents:UIControlEventTouchUpInside];
+    [_emailButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
+    [_emailButton setTitle:@"E-mails" forState:UIControlStateNormal];
     [_scrollView addSubview:_emailButton];
+    
+    _viewCallsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _viewCallsButton.frame = CGRectMake(254, 900, 100, 48);
+    _viewCallsButton.layer.cornerRadius = 10;
+    [_viewCallsButton setClipsToBounds:YES];
+    [_viewCallsButton addTarget:self action:@selector(viewCalls:) forControlEvents:UIControlEventTouchUpInside];
+    [_viewCallsButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
+    [_viewCallsButton setTitle:@"Calls" forState:UIControlStateNormal];
+    [_scrollView addSubview:_viewCallsButton];
 }
 
 
@@ -168,9 +178,14 @@
     }
 }
 
--(void)addMessageForSend:(UIBarButtonItem *)sender
+-(void)viewCalls:(UIButton *)sender
 {
-    [self performSegueWithIdentifier:@"toAddMessage" sender:sender];
+    [self performSegueWithIdentifier:@"toCallLog" sender:self];
+}
+
+-(void)viewEmails:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"toMessageLog" sender:self];
 }
 
 -(void)sendMessageWithFields:(NSString *)firstName andEmail:(NSString *)email andSubject:(NSString *)subject andBody:(NSString *)body withSender:(UIButton *)sender
@@ -222,9 +237,12 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    AddMessageViewController *mController = (AddMessageViewController *)segue.destinationViewController;
-    mController.delegate = self;
-    mController.prospect = _prospect;
+    if([segue.destinationViewController isKindOfClass:[AddMessageViewController class]])
+    {
+        AddMessageViewController *mController = (AddMessageViewController *)segue.destinationViewController;
+        mController.delegate = self;
+        mController.prospect = _prospect;
+    }
 }
 
 @end
