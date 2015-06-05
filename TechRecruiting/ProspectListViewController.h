@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Defines.h"
+#import "ProspectDetailViewController.h"
 
 @interface ProspectListViewController : UITableViewController
 

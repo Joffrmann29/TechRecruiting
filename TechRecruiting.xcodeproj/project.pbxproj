@@ -14,6 +14,9 @@
 		B40626A91B20B75900CCD7DD /* Nutech60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A41B20B75900CCD7DD /* Nutech60@3x.png */; };
 		B40626AA1B20B75900CCD7DD /* Nutech29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626A51B20B75900CCD7DD /* Nutech29@2x.png */; };
 		B40626AC1B20B8A200CCD7DD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40626AB1B20B8A200CCD7DD /* CoreTelephony.framework */; };
+		B40626AE1B20F1B800CCD7DD /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626AD1B20F1B700CCD7DD /* Phone.png */; };
+		B40626B01B21041100CCD7DD /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626AF1B21041100CCD7DD /* Email.png */; };
+		B40626B31B2108DE00CCD7DD /* AddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B40626B21B2108DE00CCD7DD /* AddMessageViewController.m */; };
 		B4A08CB21B1793A6006B0178 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB11B1793A6006B0178 /* main.m */; };
 		B4A08CB51B1793A6006B0178 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB41B1793A6006B0178 /* AppDelegate.m */; };
 		B4A08CB81B1793A6006B0178 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A08CB71B1793A6006B0178 /* LoginViewController.m */; };
@@ -58,6 +61,10 @@
 		B40626A41B20B75900CCD7DD /* Nutech60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech60@3x.png"; sourceTree = "<group>"; };
 		B40626A51B20B75900CCD7DD /* Nutech29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech29@2x.png"; sourceTree = "<group>"; };
 		B40626AB1B20B8A200CCD7DD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B40626AD1B20F1B700CCD7DD /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone.png; sourceTree = "<group>"; };
+		B40626AF1B21041100CCD7DD /* Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email.png; sourceTree = "<group>"; };
+		B40626B11B2108DE00CCD7DD /* AddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMessageViewController.h; sourceTree = "<group>"; };
+		B40626B21B2108DE00CCD7DD /* AddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMessageViewController.m; sourceTree = "<group>"; };
 		B4A08CAC1B1793A6006B0178 /* TechRecruiting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechRecruiting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A08CB01B1793A6006B0178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A08CB11B1793A6006B0178 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -183,6 +190,8 @@
 				B4A08CD91B17B16B006B0178 /* ProspectListViewController.m */,
 				B4A08CDB1B17B186006B0178 /* ProspectDetailViewController.h */,
 				B4A08CDC1B17B186006B0178 /* ProspectDetailViewController.m */,
+				B40626B11B2108DE00CCD7DD /* AddMessageViewController.h */,
+				B40626B21B2108DE00CCD7DD /* AddMessageViewController.m */,
 				B4A08CDE1B17B19F006B0178 /* MessagesListViewController.h */,
 				B4A08CDF1B17B19F006B0178 /* MessagesListViewController.m */,
 				B4A08CE11B17B1B6006B0178 /* CallLogListViewController.h */,
@@ -199,6 +208,8 @@
 				B40626A51B20B75900CCD7DD /* Nutech29@2x.png */,
 				B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */,
 				B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */,
+				B40626AD1B20F1B700CCD7DD /* Phone.png */,
+				B40626AF1B21041100CCD7DD /* Email.png */,
 				B4A08CB91B1793A6006B0178 /* Main.storyboard */,
 				B4A08CBC1B1793A6006B0178 /* Images.xcassets */,
 				B4A08CBE1B1793A6006B0178 /* LaunchScreen.xib */,
@@ -322,10 +333,12 @@
 				B40626A81B20B75900CCD7DD /* Nutech40@3x.png in Resources */,
 				B4A08CBB1B1793A6006B0178 /* Main.storyboard in Resources */,
 				B4A08CC01B1793A6006B0178 /* LaunchScreen.xib in Resources */,
+				B40626AE1B20F1B800CCD7DD /* Phone.png in Resources */,
 				B40626AA1B20B75900CCD7DD /* Nutech29@2x.png in Resources */,
 				B40626A91B20B75900CCD7DD /* Nutech60@3x.png in Resources */,
 				B4A08CBD1B1793A6006B0178 /* Images.xcassets in Resources */,
 				B4F38DFA1B1FDEA900A5BEE5 /* NutechLogo.png in Resources */,
+				B40626B01B21041100CCD7DD /* Email.png in Resources */,
 				B40626A71B20B75900CCD7DD /* Nutech40@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +392,7 @@
 			files = (
 				B4A08CE91B17B1F3006B0178 /* CallLogDetailViewController.m in Sources */,
 				B4A08CF91B18B1AF006B0178 /* Email.m in Sources */,
+				B40626B31B2108DE00CCD7DD /* AddMessageViewController.m in Sources */,
 				B4A08CFC1B18C30B006B0178 /* AddProspectViewController.m in Sources */,
 				B4A08CDA1B17B16B006B0178 /* ProspectListViewController.m in Sources */,
 				B4A08CB81B1793A6006B0178 /* LoginViewController.m in Sources */,

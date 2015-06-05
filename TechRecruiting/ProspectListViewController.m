@@ -42,7 +42,7 @@
 -(void)performProspectQuery
 {
     PFQuery *prospectQuery = [PFQuery queryWithClassName:@"Prospects"];
-        
+    [prospectQuery whereKey:@"User" equalTo:[PFUser currentUser]];
     [prospectQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             _prospects = [objects mutableCopy];
@@ -102,9 +102,9 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *prospect = _prospects[indexPath.row];
-//    PFACL *groupACL = [PFACL ACL];
-//    [groupACL setPublicWriteAccess:YES];
-//    prospect.ACL = groupACL;
+    PFACL *groupACL = [PFACL ACL];
+    [groupACL setPublicWriteAccess:YES];
+    prospect.ACL = groupACL;
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [prospect deleteInBackground];
@@ -114,6 +114,10 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toProspectDetail" sender:indexPath];
+}
 
 /*
 // Override to support rearranging the table view.
@@ -129,14 +133,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"toProspectDetail"])
+    {
+        NSIndexPath *path = sender;
+        PFObject *prospect = _prospects[path.row];
+        ProspectDetailViewController *pdvc = (ProspectDetailViewController *)segue.destinationViewController;
+        pdvc.prospect = prospect;
+    }
 }
-*/
+
 
 @end

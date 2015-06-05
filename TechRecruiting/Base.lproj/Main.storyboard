@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MrS-U2-kHq">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrS-U2-kHq">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="BDp-CV-5Ne">
@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProspectCell" textLabel="uHu-Gt-Ldy" detailTextLabel="kWe-hD-UVw" style="IBUITableViewCellStyleSubtitle" id="HXm-NQ-3yy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ProspectCell" textLabel="uHu-Gt-Ldy" detailTextLabel="kWe-hD-UVw" style="IBUITableViewCellStyleSubtitle" id="HXm-NQ-3yy">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HXm-NQ-3yy" id="vu5-3d-ohl">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -120,6 +120,46 @@
             </objects>
             <point key="canvasLocation" x="1879" y="66"/>
         </scene>
+        <!--Add Message View Controller-->
+        <scene sceneID="wcF-sh-bTd">
+            <objects>
+                <viewController id="FJX-Qp-Zx0" customClass="AddMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zyz-in-wcx"/>
+                        <viewControllerLayoutGuide type="bottom" id="ouj-ix-eTb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBf-yn-B3W">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cdt-Fs-B0e">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="yfQ-zp-8A8">
+                                        <connections>
+                                            <action selector="cancelSend:" destination="FJX-Qp-Zx0" id="zDE-C3-o3v"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uad-pW-vzd"/>
+                                    <barButtonItem systemItem="compose" id="Obd-x7-Pmg">
+                                        <connections>
+                                            <action selector="sendEmailToProspect:" destination="FJX-Qp-Zx0" id="akB-5T-d48"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cdt-Fs-B0e" firstAttribute="leading" secondItem="nBf-yn-B3W" secondAttribute="leadingMargin" constant="-16" id="6rP-RE-hQ1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cdt-Fs-B0e" secondAttribute="trailing" constant="-16" id="RQZ-qb-clL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2w-Oo-Sxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="-746"/>
+        </scene>
         <!--Prospect Details-->
         <scene sceneID="Xim-bI-z7Z">
             <objects>
@@ -131,100 +171,14 @@
                     <view key="view" contentMode="scaleToFill" id="jPa-YJ-j9h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sin-nq-lZ0">
-                                <rect key="frame" x="0.0" y="60" width="600" height="800"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="First Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25L-0d-8ps">
-                                        <rect key="frame" x="189" y="57" width="242" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="242" id="mCN-I8-NEY"/>
-                                            <constraint firstAttribute="height" constant="46" id="zhf-8p-n1D"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="mCN-I8-NEY"/>
-                                                <exclude reference="zhf-8p-n1D"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-qS-8fH">
-                                        <rect key="frame" x="174" y="137" width="242" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="5g6-ZW-w93"/>
-                                            <constraint firstAttribute="width" constant="242" id="dm6-mE-lz8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="dm6-mE-lz8"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-Ql-ZjJ">
-                                        <rect key="frame" x="179" y="215" width="242" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="242" id="a0z-Rk-vcu"/>
-                                            <constraint firstAttribute="height" constant="46" id="eS4-3A-HZg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Secondary Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-Lh-wOB">
-                                        <rect key="frame" x="179" y="301" width="242" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="Tgn-zT-cOQ"/>
-                                            <constraint firstAttribute="width" constant="242" id="XNn-tj-fNp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Tgn-zT-cOQ"/>
-                                                <exclude reference="XNn-tj-fNp"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="E-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rU-bx-qSE">
-                                        <rect key="frame" x="179" y="393" width="242" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="242" id="FbC-lf-pvZ"/>
-                                            <constraint firstAttribute="height" constant="46" id="Mp9-HN-gC6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="FbC-lf-pvZ"/>
-                                                <exclude reference="Mp9-HN-gC6"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Propsect Notes ..." translatesAutoresizingMaskIntoConstraints="NO" id="5nv-to-l6c">
-                                        <rect key="frame" x="139" y="490" width="342" height="162"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="342" id="8Lc-ef-hrk"/>
-                                            <constraint firstAttribute="height" constant="162" id="z8r-Fi-Go3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prospect Details" id="z4u-Hm-Hxh">
-                        <barButtonItem key="rightBarButtonItem" title="Options" id="Cu3-MB-UfP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Cu3-MB-UfP">
+                            <connections>
+                                <segue destination="FJX-Qp-Zx0" kind="presentation" id="40E-pC-She"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="800"/>
