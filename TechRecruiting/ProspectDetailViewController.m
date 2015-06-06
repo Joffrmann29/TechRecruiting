@@ -10,6 +10,11 @@
 
 @interface ProspectDetailViewController ()
 
+@property (strong, nonatomic) NSString *recipient;
+@property (strong, nonatomic) NSString *subject;
+@property (strong, nonatomic) NSString *body;
+@property (strong, nonatomic) NSString *email;
+
 @end
 
 @implementation ProspectDetailViewController
@@ -24,15 +29,10 @@
     self.scrollView.delegate = self;
     
     [self layoutForIphone6PlusWithContentSize:_scrollView.contentSize];
-    
-    AddMessageViewController *mController = [[AddMessageViewController alloc]init];
-    mController.delegate = self;
 }
 
 -(void)layoutForIphone6PlusWithContentSize:(CGSize)contentSize
-{
-    //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
-    
+{    
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
@@ -197,6 +197,11 @@
     [mc setMessageBody:body isHTML:NO];
     [mc setToRecipients:@[_prospect[Email]]];
     
+    _recipient = firstName;
+    _email = email;
+    _subject = subject;
+    _body = body;
+    
     if([subject isEqualToString:@""] || [body isEqualToString:@""] || email == nil)
     {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:@"You must have a valid e-mail, body, and subject" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -222,6 +227,7 @@
             break;
         case MFMailComposeResultSent:
             NSLog(@"Mail sent");
+            [self addMessage];
             break;
         case MFMailComposeResultFailed:
             NSLog(@"Mail sent failure: %@", [error localizedDescription]);
@@ -233,6 +239,35 @@
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+-(void)addMessage
+{
+    PFObject *messageObject = [PFObject objectWithClassName:@"Emails"];
+    messageObject[@"Recipient"] = _recipient;
+    messageObject[@"Address"] = _email;
+    messageObject[@"Subject"] = _subject;
+    messageObject[@"Body"] = _body;
+    messageObject[@"DateSent"] = [NSDate date];
+
+    PFRelation *relation = [messageObject relationForKey:@"User"];
+    [relation addObject:[PFUser currentUser]];
+    
+    PFRelation *prospectRelation = [messageObject relationForKey:@"Prospect"];
+    [prospectRelation addObject:_prospect];
+    [messageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"E-mail Saved" message:@"The e-mail has been successfuly saved to your e-mail list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alertView show];
+        }
+        
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Save E-mail" message:@"The e-mail was not saved to your e-mail list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

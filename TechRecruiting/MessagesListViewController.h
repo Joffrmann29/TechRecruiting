@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "MessageDetailViewController.h"
 
 @interface MessagesListViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray *messages;
 
 @end

@@ -74,11 +74,11 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(30, 212, 255, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -89,7 +89,7 @@
     _firstNameField.text = _prospect[FirstName];
     [_scrollView addSubview:_firstNameField];
     
-    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _firstNameField.frame.origin.y+94, 255, 30)];
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(30, _firstNameField.frame.origin.y+94, 255, 30)];
     _emailField.placeholder = @"E-mail";
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.layer.borderWidth = 1.0;
@@ -100,7 +100,7 @@
     _emailField.text = _prospect[Email];
     [_scrollView addSubview:_emailField];
     
-    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 255, 30)];
+    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(30, _emailField.frame.origin.y+94, 255, 30)];
     _subjectField.placeholder = @"Subject";
     _subjectField.textAlignment = NSTextAlignmentCenter;
     _subjectField.layer.borderWidth = 1.0;
@@ -110,7 +110,7 @@
     _subjectField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_subjectField];
     
-    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _subjectField.frame.origin.y+94, 255, 200)];
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(30, _subjectField.frame.origin.y+94, 255, 200)];
     _messageTextView.layer.borderWidth = 1.0;
     _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _messageTextView.layer.cornerRadius = 10.0;
@@ -126,13 +126,13 @@
 
 -(void)layoutForIPhone6
 {
-    //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
     
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 295, 128)];
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     

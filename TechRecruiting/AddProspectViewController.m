@@ -95,9 +95,9 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    //    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
-    //    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
-    //    [_imgView addSubview:_logoView];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
     
     _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 200, 30)];
     _firstNameField.placeholder = @"Username";
@@ -169,9 +169,9 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    //    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
-    //    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
-    //    [_imgView addSubview:_logoView];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 295, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
     
     _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 255, 30)];
     _firstNameField.placeholder = @"First Name";

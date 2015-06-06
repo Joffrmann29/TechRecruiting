@@ -145,7 +145,7 @@
         [self performSegueWithIdentifier:@"toCallLog" sender:self];
     }
     
-    else
+    else if(buttonIndex == 2)
     {
         [self performSegueWithIdentifier:@"toMessageLog" sender:self];
     }
