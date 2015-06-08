@@ -28,11 +28,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
-    // Set delegate, datasource, and call pfquery method in view will appear so that any updates will be displayed immediately.
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
     [self performProspectQuery];
     
     self.navigationController.navigationBarHidden = NO;

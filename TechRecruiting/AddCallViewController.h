@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "AppDelegate.h"
 
 
 @interface AddCallViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate>
 
-- (IBAction)cancelSend:(id)sender;
+- (IBAction)cancel:(id)sender;
 - (IBAction)saveCall:(id)sender;
 
 @property (strong, nonatomic) UITextField *natureOfCallField;
@@ -22,6 +23,8 @@
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIImageView *logoView;
 @property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIButton *saveButton;
+@property (strong, nonatomic) UIButton *cancelButton;
 
 @property (strong, nonatomic) PFObject *prospect;
 

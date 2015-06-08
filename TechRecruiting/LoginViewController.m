@@ -87,6 +87,7 @@
     
     _passField = [[UITextField alloc]initWithFrame:CGRectMake(60, _userField.frame.origin.y+94, 200, 30)];
     _passField.placeholder = @"Password";
+    [_passField setSecureTextEntry:YES];
     _passField.textAlignment = NSTextAlignmentCenter;
     _passField.layer.borderWidth = 1.0;
     _passField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -138,6 +139,7 @@
     
     _passField = [[UITextField alloc]initWithFrame:CGRectMake(60, _userField.frame.origin.y+94, 200, 30)];
     _passField.placeholder = @"Password";
+    [_passField setSecureTextEntry:YES];
     _passField.textAlignment = NSTextAlignmentCenter;
     _passField.layer.borderWidth = 1.0;
     _passField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -189,6 +191,7 @@
     
     _passField = [[UITextField alloc]initWithFrame:CGRectMake(60, _userField.frame.origin.y+94, 255, 30)];
     _passField.placeholder = @"Password";
+    [_passField setSecureTextEntry:YES];
     _passField.textAlignment = NSTextAlignmentCenter;
     _passField.layer.borderWidth = 1.0;
     _passField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -240,6 +243,7 @@
     
     _passField = [[UITextField alloc]initWithFrame:CGRectMake(60, _userField.frame.origin.y+94, 294, 30)];
     _passField.placeholder = @"Password";
+    [_passField setSecureTextEntry:YES];
     _passField.textAlignment = NSTextAlignmentCenter;
     _passField.layer.borderWidth = 1.0;
     _passField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -287,13 +291,16 @@
 
 - (void)loginToTechRecruiting:(id)sender {
     [PFUser logInWithUsernameInBackground:self.userField.text password:self.passField.text block:^(PFUser *user, NSError *error) {
-        if (user) {
+        if (user)
+        {
             //Open the wall
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self performSegueWithIdentifier:@"toProspectList" sender:self];
             
-        } else {
+        }
+        else
+        {
             //Something bad has ocurred
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
