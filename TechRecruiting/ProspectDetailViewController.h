@@ -14,6 +14,7 @@
 #import<CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <MessageUI/MessageUI.h>
 #import "AddMessageViewController.h"
+#import "AddCallViewController.h"
 
 @interface ProspectDetailViewController : UIViewController<UIScrollViewDelegate, MFMailComposeViewControllerDelegate, AddMessageDelegate>
 

@@ -163,6 +163,11 @@
             if (call.callState == CTCallStateDisconnected)
             {
                 NSLog(@"Call ended.");
+                PFObject *messageObject = [PFObject objectWithClassName:@"Calls"];
+                messageObject[@"Recipient"] = _recipient;
+                messageObject[@"Address"] = _email;
+                messageObject[@"Subject"] = _subject;
+                messageObject[@"Body"] = _body;
             }
         };
 
@@ -277,6 +282,12 @@
         AddMessageViewController *mController = (AddMessageViewController *)segue.destinationViewController;
         mController.delegate = self;
         mController.prospect = _prospect;
+    }
+    
+    else
+    {
+        AddCallViewController *cController = (AddCallViewController *)segue.destinationViewController;
+        cController.prospect = _prospect;
     }
 }
 
