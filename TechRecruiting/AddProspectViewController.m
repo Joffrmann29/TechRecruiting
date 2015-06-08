@@ -100,7 +100,7 @@
     [_imgView addSubview:_logoView];
     
     _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 200, 30)];
-    _firstNameField.placeholder = @"Username";
+    _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
     _firstNameField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -110,7 +110,7 @@
     [_scrollView addSubview:_firstNameField];
     
     _lastNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, _firstNameField.frame.origin.y+94, 200, 30)];
-    _lastNameField.placeholder = @"Password";
+    _lastNameField.placeholder = @"Last Name";
     _lastNameField.textAlignment = NSTextAlignmentCenter;
     _lastNameField.layer.borderWidth = 1.0;
     _lastNameField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -120,7 +120,7 @@
     [_scrollView addSubview:_lastNameField];
     
     _phoneField = [[UITextField alloc]initWithFrame:CGRectMake(60, _lastNameField.frame.origin.y+94, 200, 30)];
-    _phoneField.placeholder = @"Confirm Password";
+    _phoneField.placeholder = @"Phone";
     _phoneField.textAlignment = NSTextAlignmentCenter;
     _phoneField.layer.borderWidth = 1.0;
     _phoneField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -130,7 +130,7 @@
     [_scrollView addSubview:_phoneField];
     
     _secondaryPhoneField = [[UITextField alloc]initWithFrame:CGRectMake(60, _phoneField.frame.origin.y+94, 200, 30)];
-    _secondaryPhoneField.placeholder = @"First Name";
+    _secondaryPhoneField.placeholder = @"Secondary Phone";
     _secondaryPhoneField.textAlignment = NSTextAlignmentCenter;
     _secondaryPhoneField.layer.borderWidth = 1.0;
     _secondaryPhoneField.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -140,7 +140,7 @@
     [_scrollView addSubview:_secondaryPhoneField];
     
     _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _secondaryPhoneField.frame.origin.y+94, 200, 30)];
-    _emailField.placeholder = @"Last Name";
+    _emailField.placeholder = @"E-mail";
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.layer.borderWidth = 1.0;
     _emailField.layer.borderColor = [UIColor lightGrayColor].CGColor;

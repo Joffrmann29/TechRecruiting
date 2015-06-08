@@ -218,7 +218,7 @@
             <objects>
                 <tableViewController id="Ngd-Ea-fjh" customClass="CallLogListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e6H-qt-Cfs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -252,7 +252,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hCx-27-SXn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8ss-9X-6dV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -266,7 +266,7 @@
             <objects>
                 <tableViewController id="MTA-YB-b4W" customClass="MessagesListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lzj-Bg-0bx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -314,7 +314,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ULw-iS-Ubg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UyC-sw-5U0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -390,7 +390,7 @@
         <image name="MenuIcon.png" width="22" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IXB-JD-eW5"/>
-        <segue reference="SII-sO-ovd"/>
+        <segue reference="V1y-Fq-iVu"/>
+        <segue reference="Oxl-18-FcR"/>
     </inferredMetricsTieBreakers>
 </document>
