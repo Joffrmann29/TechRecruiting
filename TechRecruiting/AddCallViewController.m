@@ -273,7 +273,9 @@
     callObject[@"Duration"] = _durationField.text;
     callObject[@"Result"] = _resultField.text;
     callObject[@"Notes"] = _messageTextView.text;
-    callObject[@"PhoneNumber"] = _prospect[@"Phone"];
+    callObject[@"FirstName"] = _prospect[@"FirstName"];
+    callObject[@"LastName"] = _prospect[@"LastName"];
+    callObject[@"PhoneNumber"] = _phone;
     
     PFRelation *propsectRelation = [callObject relationForKey:@"ProspectForCall"];
     [propsectRelation addObject:_prospect];

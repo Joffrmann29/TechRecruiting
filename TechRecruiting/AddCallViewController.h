@@ -26,6 +26,9 @@
 @property (strong, nonatomic) UIButton *saveButton;
 @property (strong, nonatomic) UIButton *cancelButton;
 
+@property (strong, nonatomic) NSString *phone;
+@property (strong, nonatomic) NSString *duration;
+
 @property (strong, nonatomic) PFObject *prospect;
 
 @end

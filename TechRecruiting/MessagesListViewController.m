@@ -29,6 +29,11 @@
 {
     PFQuery *messageQuery = [PFQuery queryWithClassName:@"Emails"];
     [messageQuery whereKey:@"User" equalTo:[PFUser currentUser]];
+    
+    if(_prospectMode == YES)
+    {
+        [messageQuery whereKey:@"Prospect" equalTo:_prospect];
+    }
     [messageQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             _messages = [objects mutableCopy];

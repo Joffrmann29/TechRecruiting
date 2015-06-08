@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *subject;
 @property (strong, nonatomic) NSString *body;
 @property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *phNo;
 
 @end
 
@@ -26,13 +27,16 @@
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:_scrollView];
     self.scrollView.delegate = self;
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     
     NSLog(@"%@", [appDelegate platformString]);
     if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
         //call layout method for Iphone 6 Plus
-        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.4);
+        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height * 1.6);
         [self layoutForIphone6PlusWithContentSize:_scrollView.contentSize];
     }
     
@@ -53,6 +57,14 @@
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
+
 -(void)layoutForIPhone4S
 {
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.7);
@@ -69,33 +81,33 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 212, 255, 46)];
+    _firstNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 212, 255, 46)];
     _firstNameLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _firstNameLabel.text = [NSString stringWithFormat:@"First Name:         %@", _prospect[FirstName]];
     _firstNameLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     [_scrollView addSubview:_firstNameLabel];
     
-    _lastNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _firstNameLabel.frame.origin.y+94, 255, 46)];
+    _lastNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _firstNameLabel.frame.origin.y+94, 255, 46)];
     _lastNameLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _lastNameLabel.text = [NSString stringWithFormat:@"Last Name:         %@", _prospect[LastName]];;
     [_scrollView addSubview:_lastNameLabel];
     
-    _phoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _lastNameLabel.frame.origin.y+94, 255, 46)];
+    _phoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _lastNameLabel.frame.origin.y+94, 255, 46)];
     _phoneLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _phoneLabel.text = [NSString stringWithFormat:@"Phone:         %@", _prospect[Phone]];
     [_scrollView addSubview:_phoneLabel];
     
-    _secondaryPhoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _phoneLabel.frame.origin.y+94, 255, 46)];
+    _secondaryPhoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _phoneLabel.frame.origin.y+94, 255, 46)];
     _secondaryPhoneLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _secondaryPhoneLabel.text = [NSString stringWithFormat:@"Secondary Phone:    %@", _prospect[SecondaryPhone]];
     [_scrollView addSubview:_secondaryPhoneLabel];
     
-    _emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _secondaryPhoneLabel.frame.origin.y+94, 255, 46)];
+    _emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _secondaryPhoneLabel.frame.origin.y+94, 255, 46)];
     _emailLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _emailLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _prospect[Email]];
     [_scrollView addSubview:_emailLabel];
     
-    _prospectTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _emailLabel.frame.origin.y+94, 255, 200)];
+    _prospectTextView = [[UITextView alloc]initWithFrame:CGRectMake(30, _emailLabel.frame.origin.y+94, 255, 200)];
     _prospectTextView.layer.borderWidth = 1.0;
     _prospectTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _prospectTextView.layer.cornerRadius = 10.0;
@@ -107,7 +119,7 @@
     [_scrollView addSubview:_prospectTextView];
     
     _callButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _callButton.frame = CGRectMake(294, _phoneLabel.frame.origin.y, 48, 48);
+    _callButton.frame = CGRectMake(264, _phoneLabel.frame.origin.y, 48, 48);
     _callButton.tag = 0;
     _callButton.layer.cornerRadius = 10;
     [_callButton setClipsToBounds:YES];
@@ -116,7 +128,7 @@
     [_scrollView addSubview:_callButton];
     
     _secondaryCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _secondaryCallButton.frame = CGRectMake(354, _secondaryPhoneLabel.frame.origin.y, 48, 48);
+    _secondaryCallButton.frame = CGRectMake(324, _secondaryPhoneLabel.frame.origin.y, 48, 48);
     _secondaryCallButton.tag = 1;
     _secondaryCallButton.layer.cornerRadius = 10;
     [_secondaryCallButton setClipsToBounds:YES];
@@ -125,7 +137,7 @@
     [_scrollView addSubview:_secondaryCallButton];
     
     _emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _emailButton.frame = CGRectMake(_prospectTextView.frame.origin.x, 900, 100, 48);
+    _emailButton.frame = CGRectMake(_prospectTextView.frame.origin.x-30, 900, 100, 48);
     _emailButton.layer.cornerRadius = 10;
     [_emailButton setClipsToBounds:YES];
     [_emailButton addTarget:self action:@selector(viewEmails:) forControlEvents:UIControlEventTouchUpInside];
@@ -134,18 +146,27 @@
     [_scrollView addSubview:_emailButton];
     
     _viewCallsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _viewCallsButton.frame = CGRectMake(254, 900, 100, 48);
+    _viewCallsButton.frame = CGRectMake(190, 900, 100, 48);
     _viewCallsButton.layer.cornerRadius = 10;
     [_viewCallsButton setClipsToBounds:YES];
     [_viewCallsButton addTarget:self action:@selector(viewCalls:) forControlEvents:UIControlEventTouchUpInside];
     [_viewCallsButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
     [_viewCallsButton setTitle:@"Calls" forState:UIControlStateNormal];
     [_scrollView addSubview:_viewCallsButton];
+    
+    _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _editButton.frame = CGRectMake(91, 1000, 48, 48);
+    _editButton.layer.cornerRadius = 10;
+    [_editButton setClipsToBounds:YES];
+    [_editButton addTarget:self action:@selector(viewCalls:) forControlEvents:UIControlEventTouchUpInside];
+    [_editButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
+    [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [_scrollView addSubview:_editButton];
 }
 
 -(void)layoutForIPhone6
 {
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.5);
     
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
@@ -155,28 +176,28 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 212, 255, 46)];
+    _firstNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 212, 255, 46)];
     _firstNameLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _firstNameLabel.text = [NSString stringWithFormat:@"First Name:         %@", _prospect[FirstName]];
     _firstNameLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     [_scrollView addSubview:_firstNameLabel];
     
-    _lastNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _firstNameLabel.frame.origin.y+94, 255, 46)];
+    _lastNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _firstNameLabel.frame.origin.y+94, 255, 46)];
     _lastNameLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _lastNameLabel.text = [NSString stringWithFormat:@"Last Name:         %@", _prospect[LastName]];;
     [_scrollView addSubview:_lastNameLabel];
     
-    _phoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _lastNameLabel.frame.origin.y+94, 255, 46)];
+    _phoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _lastNameLabel.frame.origin.y+94, 255, 46)];
     _phoneLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _phoneLabel.text = [NSString stringWithFormat:@"Phone:         %@", _prospect[Phone]];
     [_scrollView addSubview:_phoneLabel];
     
-    _secondaryPhoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _phoneLabel.frame.origin.y+94, 255, 46)];
+    _secondaryPhoneLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _phoneLabel.frame.origin.y+94, 255, 46)];
     _secondaryPhoneLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _secondaryPhoneLabel.text = [NSString stringWithFormat:@"Secondary Phone:    %@", _prospect[SecondaryPhone]];
     [_scrollView addSubview:_secondaryPhoneLabel];
     
-    _emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _secondaryPhoneLabel.frame.origin.y+94, 255, 46)];
+    _emailLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _secondaryPhoneLabel.frame.origin.y+94, 255, 46)];
     _emailLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _emailLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _prospect[Email]];
     [_scrollView addSubview:_emailLabel];
@@ -193,7 +214,7 @@
     [_scrollView addSubview:_prospectTextView];
     
     _callButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _callButton.frame = CGRectMake(294, _phoneLabel.frame.origin.y, 48, 48);
+    _callButton.frame = CGRectMake(264, _phoneLabel.frame.origin.y, 48, 48);
     _callButton.tag = 0;
     _callButton.layer.cornerRadius = 10;
     [_callButton setClipsToBounds:YES];
@@ -202,7 +223,7 @@
     [_scrollView addSubview:_callButton];
     
     _secondaryCallButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _secondaryCallButton.frame = CGRectMake(354, _secondaryPhoneLabel.frame.origin.y, 48, 48);
+    _secondaryCallButton.frame = CGRectMake(324, _secondaryPhoneLabel.frame.origin.y, 48, 48);
     _secondaryCallButton.tag = 1;
     _secondaryCallButton.layer.cornerRadius = 10;
     [_secondaryCallButton setClipsToBounds:YES];
@@ -211,7 +232,7 @@
     [_scrollView addSubview:_secondaryCallButton];
     
     _emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _emailButton.frame = CGRectMake(_prospectTextView.frame.origin.x, 900, 100, 48);
+    _emailButton.frame = CGRectMake(_prospectTextView.frame.origin.x-30, 900, 100, 48);
     _emailButton.layer.cornerRadius = 10;
     [_emailButton setClipsToBounds:YES];
     [_emailButton addTarget:self action:@selector(viewEmails:) forControlEvents:UIControlEventTouchUpInside];
@@ -220,7 +241,7 @@
     [_scrollView addSubview:_emailButton];
     
     _viewCallsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _viewCallsButton.frame = CGRectMake(254, 900, 100, 48);
+    _viewCallsButton.frame = CGRectMake(245, 900, 100, 48);
     _viewCallsButton.layer.cornerRadius = 10;
     [_viewCallsButton setClipsToBounds:YES];
     [_viewCallsButton addTarget:self action:@selector(viewCalls:) forControlEvents:UIControlEventTouchUpInside];
@@ -311,6 +332,15 @@
     [_viewCallsButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
     [_viewCallsButton setTitle:@"Calls" forState:UIControlStateNormal];
     [_scrollView addSubview:_viewCallsButton];
+    
+    _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _editButton.frame = CGRectMake(152, 1000, 100, 48);
+    _editButton.layer.cornerRadius = 10;
+    [_editButton setClipsToBounds:YES];
+    [_editButton addTarget:self action:@selector(editProspect:) forControlEvents:UIControlEventTouchUpInside];
+    [_editButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
+    [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [_scrollView addSubview:_editButton];
 }
 
 
@@ -329,21 +359,24 @@
 }
 */
 
+-(void)editProspect:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"toEditProspect" sender:self];
+}
+
 -(void)callProspect:(UIButton *)sender
 {
-    NSString *phNo;
-    
     if(sender.tag == 0)
     {
-        phNo = _prospect[Phone];
+        _phNo = _prospect[Phone];
     }
     
     else
     {
-        phNo = _prospect[SecondaryPhone];
+        _phNo = _prospect[SecondaryPhone];
     }
     
-    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@",phNo]];
+    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@",_phNo]];
     
     
     
@@ -481,10 +514,24 @@
         mController.prospect = _prospect;
     }
     
-    else
+    else if([segue.destinationViewController isKindOfClass:[AddCallViewController class]])
     {
         AddCallViewController *cController = (AddCallViewController *)segue.destinationViewController;
         cController.prospect = _prospect;
+        cController.phone = _phNo;
+    }
+    
+    else if([segue.destinationViewController isKindOfClass:[MessagesListViewController class]])
+    {
+        MessagesListViewController *mController = (MessagesListViewController *)segue.destinationViewController;
+        mController.prospectMode = YES;
+        mController.prospect = _prospect;
+    }
+    
+    else if([segue.destinationViewController isKindOfClass:[EditProspectViewController class]])
+    {
+        EditProspectViewController *eController = (EditProspectViewController *)segue.destinationViewController;
+        eController.prospect = _prospect;
     }
 }
 

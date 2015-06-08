@@ -17,11 +17,168 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.view addSubview:_scrollView];
+    self.scrollView.delegate = self;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSLog(@"%@", [appDelegate platformString]);
+    if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
+        //call layout method for Iphone 6 Plus
+        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
+        [self layoutForIphone6Plus];
+    }
+    
+    else if([[appDelegate platformString]isEqualToString:@"iPhone7,2"]){
+        //call layout method for Iphone 6 Plus
+        [self layoutForIPhone6];
+    }
+    
+    else if([[appDelegate platformString]isEqualToString:@"iPhone 5"] || [[appDelegate platformString]isEqualToString:@"iPhone 5C"] || [[appDelegate platformString]isEqualToString:@"iPhone 5S"]){
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.8);
+        //call layout method for Iphone 5, 5C, and 5S
+        [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
+    }
+    
+    else
+    {
+        [self layoutForIPhone4S];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
+
+-(void)layoutForIPhone4S
+{
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.3);
+    [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
+}
+
+-(void)layoutForIphone5WithContentSize:(CGSize)contentSize
+{
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
+    [_scrollView addSubview:_imgView];
+    
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
+    
+    _natureLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 212, 255, 46)];
+    _natureLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _natureLabel.text = [NSString stringWithFormat:@"Recipient:         %@", _call[@"NatureOfCall"]];
+    _natureLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_natureLabel];
+    
+    _durationLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _natureLabel.frame.origin.y+94, 255, 46)];
+    _durationLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _durationLabel.text = [NSString stringWithFormat:@"Subject:         %@", _call[@"Subject"]];;
+    [_scrollView addSubview:_durationLabel];
+    
+    _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _durationLabel.frame.origin.y+94, 255, 46)];
+    _resultLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
+    [_scrollView addSubview:_resultLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 200)];
+    _notesTextView.layer.borderWidth = 1.0;
+    _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _notesTextView.layer.cornerRadius = 10.0;
+    _notesTextView.clipsToBounds = YES;
+    _notesTextView.backgroundColor = [UIColor whiteColor];
+    _notesTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _notesTextView.text = _call[@"Notes"];
+    _notesTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_notesTextView];
+}
+
+-(void)layoutForIPhone6
+{
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
+    [_scrollView addSubview:_imgView];
+    
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 295, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
+    
+    _natureLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 212, 255, 46)];
+    _natureLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _natureLabel.text = [NSString stringWithFormat:@"Recipient:         %@", _call[@"NatureOfCall"]];
+    _natureLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_natureLabel];
+    
+    _durationLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _natureLabel.frame.origin.y+94, 255, 46)];
+    _durationLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _durationLabel.text = [NSString stringWithFormat:@"Subject:         %@", _call[@"Subject"]];;
+    [_scrollView addSubview:_durationLabel];
+    
+    _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _durationLabel.frame.origin.y+94, 255, 46)];
+    _resultLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
+    [_scrollView addSubview:_resultLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 200)];
+    _notesTextView.layer.borderWidth = 1.0;
+    _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _notesTextView.layer.cornerRadius = 10.0;
+    _notesTextView.clipsToBounds = YES;
+    _notesTextView.backgroundColor = [UIColor whiteColor];
+    _notesTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _notesTextView.text = _call[@"Notes"];
+    _notesTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_notesTextView];
+}
+
+-(void)layoutForIphone6Plus
+{
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
+    [_scrollView addSubview:_imgView];
+    
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
+    
+    _natureLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, 212, 294, 46)];
+    _natureLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _natureLabel.text = [NSString stringWithFormat:@"Nature of Call:         %@", _call[@"NatureOfCall"]];
+    _natureLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_natureLabel];
+    
+    _durationLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _natureLabel.frame.origin.y+94, 294, 46)];
+    _durationLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _durationLabel.text = [NSString stringWithFormat:@"Duration:         %@", _call[@"Duration"]];;
+    [_scrollView addSubview:_durationLabel];
+    
+    _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _durationLabel.frame.origin.y+94, 294, 46)];
+    _resultLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _resultLabel.text = [NSString stringWithFormat:@"Result:         %@", _call[@"Result"]];
+    [_scrollView addSubview:_resultLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 294, 200)];
+    _notesTextView.layer.borderWidth = 1.0;
+    _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _notesTextView.layer.cornerRadius = 10.0;
+    _notesTextView.clipsToBounds = YES;
+    _notesTextView.backgroundColor = [UIColor whiteColor];
+    _notesTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _notesTextView.text = _call[@"Notes"];
+    _notesTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
+    [_scrollView addSubview:_notesTextView];
 }
 
 /*

@@ -13,5 +13,8 @@
 @interface MessagesListViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *messages;
+@property (strong, nonatomic) PFObject *prospect;
+
+@property (nonatomic) BOOL prospectMode;
 
 @end

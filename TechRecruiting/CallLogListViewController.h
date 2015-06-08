@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "CallLogDetailViewController.h"
 
 @interface CallLogListViewController : UITableViewController
+
+@property (strong,nonatomic) NSMutableArray *callLogArray;
+
+@property (strong, nonatomic) PFObject *prospect;
+
+@property (nonatomic) BOOL prospectMode;
 
 @end

@@ -15,6 +15,8 @@
 #import <MessageUI/MessageUI.h>
 #import "AddMessageViewController.h"
 #import "AddCallViewController.h"
+#import "MessagesListViewController.h"
+#import "EditProspectViewController.h"
 
 @interface ProspectDetailViewController : UIViewController<UIScrollViewDelegate, MFMailComposeViewControllerDelegate, AddMessageDelegate>
 
@@ -31,6 +33,7 @@
 @property (strong, nonatomic) UIButton *secondaryCallButton;
 @property (strong, nonatomic) UIButton *emailButton;
 @property (strong, nonatomic) UIButton *viewCallsButton;
+@property (strong, nonatomic) UIButton *editButton;
 @property (strong,nonatomic) CTCall *prospectCall;
 @property (strong, nonatomic) CTCallCenter *callCenter;
 @property (strong, nonatomic) PFObject *prospect;

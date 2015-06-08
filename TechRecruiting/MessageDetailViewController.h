@@ -21,4 +21,5 @@
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (strong, nonatomic) PFObject *message;
+
 @end

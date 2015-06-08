@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Defines.h"
 #import "ProspectDetailViewController.h"
+#import "LoginViewController.h"
 
 @interface ProspectListViewController : UITableViewController<UIActionSheetDelegate>
 

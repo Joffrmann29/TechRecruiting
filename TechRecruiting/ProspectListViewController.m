@@ -144,6 +144,12 @@
     {
         [self performSegueWithIdentifier:@"toMessageLog" sender:self];
     }
+    
+    else if(buttonIndex == 3)
+    {
+        [PFUser logOut];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Navigation
@@ -163,7 +169,7 @@
 
 
 - (IBAction)viewOptions:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Add Prospect" otherButtonTitles:@"Call Log", @"E-mail Log", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Options" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Add Prospect" otherButtonTitles:@"Call Log", @"E-mail Log", @"Logout", nil];
     [actionSheet showInView:self.view];
 }
 @end
