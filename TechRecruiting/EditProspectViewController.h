@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Defines.h"
-#import "Prospect.h"
 #import "AppDelegate.h"
 
 @interface EditProspectViewController : UIViewController<UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate>

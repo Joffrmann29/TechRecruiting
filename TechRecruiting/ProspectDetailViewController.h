@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Prospect.h"
+#import "Defines.h"
 #import<CoreTelephony/CTCallCenter.h>
 #import<CoreTelephony/CTCall.h>
 #import<CoreTelephony/CTCarrier.h>

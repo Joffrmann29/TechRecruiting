@@ -8,29 +8,14 @@
 
 #ifndef ComicNerds_Defines_h
 #define ComicNerds_Defines_h
-//Mutual keys
-#define OBJECTID @"objectId"
-#define CREATEDAT @"createdAt"
-#define UPDATEDAT @"updatedAt"
-#define ACLKEY @"ACL"
 
-//User specific Keys
-#define USERCLASS @"User"
-#define USERNAME @"username"
-#define USEREMAIL @"email"
-
-//UsersComics specific Keys
-#define USERSCOMICSCLASS @"UsersComics"
 #define USERSPROSPECTSUSER @"User"
-#define USERSCOMICSTITLENAME @"TitleName"
-#define USERSCOMICSAUTHOR @"Author"
-#define USERSCOMICSARTIST @"Artist"
-#define USERSCOMICSPUBLISHER @"Publisher"
-#define USERSCOMICSISSUENUM @"IssueNum"
-#define USERSCOMICSVOLUMENUM @"VolumeNum"
-#define USERSCOMICSPUBLICATIONDATE @"PublicationDate"
-#define USERSCOMICSCOMMENTS @"Comments"
-#define USERSCOMICSCOVERIMAGE @"CoverImage"
-#define USERSCOMICSISSUEID @"issueID"
+#define FirstName @"FirstName"
+#define LastName @"LastName"
+#define Phone @"Phone"
+#define SecondaryPhone @"SecondaryPhone"
+#define Email @"Email"
+#define Notes @"Notes"
+
 
 #endif

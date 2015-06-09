@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Prospect.h"
 #import "AppDelegate.h"
 #import "Defines.h"
 
