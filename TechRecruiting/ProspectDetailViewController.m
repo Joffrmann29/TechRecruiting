@@ -155,10 +155,10 @@
     [_scrollView addSubview:_viewCallsButton];
     
     _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _editButton.frame = CGRectMake(91, 1000, 48, 48);
+    _editButton.frame = CGRectMake(60, 1000, 48, 48);
     _editButton.layer.cornerRadius = 10;
     [_editButton setClipsToBounds:YES];
-    [_editButton addTarget:self action:@selector(viewCalls:) forControlEvents:UIControlEventTouchUpInside];
+    [_editButton addTarget:self action:@selector(editProspect:) forControlEvents:UIControlEventTouchUpInside];
     [_editButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
     [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
     [_scrollView addSubview:_editButton];
@@ -248,6 +248,15 @@
     [_viewCallsButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
     [_viewCallsButton setTitle:@"Calls" forState:UIControlStateNormal];
     [_scrollView addSubview:_viewCallsButton];
+    
+    _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _editButton.frame = CGRectMake(87, 1000, 100, 48);
+    _editButton.layer.cornerRadius = 10;
+    [_editButton setClipsToBounds:YES];
+    [_editButton addTarget:self action:@selector(editProspect:) forControlEvents:UIControlEventTouchUpInside];
+    [_editButton setBackgroundImage:[UIImage imageNamed:@"lightReadGradient.jpeg"] forState:UIControlStateNormal];
+    [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [_scrollView addSubview:_editButton];
 }
 
 -(void)layoutForIphone6PlusWithContentSize:(CGSize)contentSize
