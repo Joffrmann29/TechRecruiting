@@ -297,7 +297,8 @@
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"You have successfully logged in" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self performSegueWithIdentifier:@"toProspectList" sender:self];
-            
+            _userField.text = nil;
+            _passField.text = nil;
         }
         else
         {

@@ -156,6 +156,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B49668CD1B27282F004817A7 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				B4A08CFD1B18F78A006B0178 /* MBProgressHUD.h */,
+				B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		B49668CE1B272846004817A7 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				B4F38DF41B1F89D700A5BEE5 /* Defines.h */,
+			);
+			name = Defines;
+			sourceTree = "<group>";
+		};
 		B4A08CA31B1793A6006B0178 = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +198,8 @@
 			children = (
 				B4A08CB31B1793A6006B0178 /* AppDelegate.h */,
 				B4A08CB41B1793A6006B0178 /* AppDelegate.m */,
-				B4A08CFD1B18F78A006B0178 /* MBProgressHUD.h */,
-				B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */,
-				B4F38DF41B1F89D700A5BEE5 /* Defines.h */,
+				B49668CD1B27282F004817A7 /* MBProgressHUD */,
+				B49668CE1B272846004817A7 /* Defines */,
 				B4A08CF11B18B15B006B0178 /* Prospect.h */,
 				B4A08CF21B18B15B006B0178 /* Prospect.m */,
 				B4A08CF41B18B19B006B0178 /* Call.h */,
@@ -214,6 +230,17 @@
 				B4A08CE21B17B1B6006B0178 /* CallLogListViewController.m */,
 				B4A08CE71B17B1F3006B0178 /* CallLogDetailViewController.h */,
 				B4A08CE81B17B1F3006B0178 /* CallLogDetailViewController.m */,
+				B4A08CB91B1793A6006B0178 /* Main.storyboard */,
+				B4A08CBC1B1793A6006B0178 /* Images.xcassets */,
+				B4A08CBE1B1793A6006B0178 /* LaunchScreen.xib */,
+				B4A08CAF1B1793A6006B0178 /* Supporting Files */,
+			);
+			path = TechRecruiting;
+			sourceTree = "<group>";
+		};
+		B4A08CAF1B1793A6006B0178 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				B4F38DF71B1FBDEE00A5BEE5 /* lightReadGradient.jpeg */,
 				B40626B41B224AF200CCD7DD /* MenuIcon.png */,
 				B40626A11B20B75900CCD7DD /* Nutech29@3x.png */,
@@ -226,17 +253,6 @@
 				B40626AD1B20F1B700CCD7DD /* Phone.png */,
 				B49668C81B264B6A004817A7 /* Edit.png */,
 				B40626AF1B21041100CCD7DD /* Email.png */,
-				B4A08CB91B1793A6006B0178 /* Main.storyboard */,
-				B4A08CBC1B1793A6006B0178 /* Images.xcassets */,
-				B4A08CBE1B1793A6006B0178 /* LaunchScreen.xib */,
-				B4A08CAF1B1793A6006B0178 /* Supporting Files */,
-			);
-			path = TechRecruiting;
-			sourceTree = "<group>";
-		};
-		B4A08CAF1B1793A6006B0178 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				B4A08CB01B1793A6006B0178 /* Info.plist */,
 				B4A08CB11B1793A6006B0178 /* main.m */,
 			);

@@ -56,14 +56,14 @@
         [self layoutForIPhone4S];
     }
 }
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    if (sender.contentOffset.x != 0) {
-        CGPoint offset = sender.contentOffset;
-        offset.x = 0;
-        sender.contentOffset = offset;
-    }
-}
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)sender {
+//    if (sender.contentOffset.x != 0) {
+//        CGPoint offset = sender.contentOffset;
+//        offset.x = 0;
+//        sender.contentOffset = offset;
+//    }
+//}
 
 -(void)layoutForIPhone4S
 {
