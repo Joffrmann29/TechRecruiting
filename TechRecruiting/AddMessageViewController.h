@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "Prospect.h"
 #import "AppDelegate.h"
+#import "Defines.h"
 
 @protocol AddMessageDelegate <NSObject>
 

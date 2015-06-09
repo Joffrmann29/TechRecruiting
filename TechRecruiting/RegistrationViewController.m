@@ -13,7 +13,7 @@
 @end
 
 @implementation RegistrationViewController
-MBProgressHUD *hud;
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,6 +50,12 @@ MBProgressHUD *hud;
         
     }
 }
+
+//-(void)loadingOverlay
+//{
+//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.labelText = @"Loading";
+//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     if (sender.contentOffset.x != 0) {
@@ -92,7 +98,7 @@ MBProgressHUD *hud;
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _userField = [[UITextField alloc]initWithFrame:CGRectMake(60, 1212, 200, 30)];
+    _userField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 200, 30)];
     _userField.placeholder = @"Username";
     _userField.textAlignment = NSTextAlignmentCenter;
     _userField.layer.borderWidth = 1.0;
@@ -152,6 +158,8 @@ MBProgressHUD *hud;
     _emailField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_emailField];
     [self setTextFieldDelegates];
+    
+    //[self loadingOverlay];
 }
 
 -(void)layoutForIphone6
@@ -216,7 +224,7 @@ MBProgressHUD *hud;
     _lastNameField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_lastNameField];
     
-    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _lastNameField.frame.origin.y+94, 294, 30)];
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _lastNameField.frame.origin.y+94, 255, 30)];
     _emailField.placeholder = @"E-mail";
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.layer.borderWidth = 1.0;
@@ -226,6 +234,8 @@ MBProgressHUD *hud;
     _emailField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_emailField];
     [self setTextFieldDelegates];
+    
+    //[self loadingOverlay];
 }
 
 -(void)layoutForIphone6PlusWithContentSize:(CGSize)contentSize
@@ -299,7 +309,10 @@ MBProgressHUD *hud;
     _emailField.clipsToBounds = YES;
     _emailField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_emailField];
+    
     [self setTextFieldDelegates];
+    
+    //[self loadingOverlay];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -316,17 +329,14 @@ MBProgressHUD *hud;
     newUser[@"LastName"] = self.lastNameField.text;
     newUser[@"email"] = self.emailField.text;
     newUser[@"ConfirmPassword"] = self.confirmPasswordField.text;
-    
-    
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading";
+
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             [self dismissViewControllerAnimated:YES completion:^{
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"Your recruiter account has been successfully created" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
-                [hud hide:YES];
+                //[hud hide:YES];
             }];
         }
         else{
@@ -334,7 +344,7 @@ MBProgressHUD *hud;
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            [hud hide:YES];
+            //[hud hide:YES];
         }
     }];
 }

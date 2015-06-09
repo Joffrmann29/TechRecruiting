@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UILabel *subjectLabel;
 @property (strong, nonatomic) UILabel *bodyLabel;
 @property (strong, nonatomic) UILabel *addressLabel;
+@property (strong, nonatomic) UILabel *dateLabel;
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIImageView *logoView;
 @property (strong, nonatomic) UIScrollView *scrollView;

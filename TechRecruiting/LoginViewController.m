@@ -13,6 +13,7 @@
 @end
 
 @implementation LoginViewController
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,28 +42,19 @@
         [self layoutForIphone4];
         
     }
-//    NSString *phNo = @"+14048343906";
-//    
-//    NSURL *phoneUrl = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@",phNo]];
-//    
-//    
-//    
-//    if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
-//        
-//        [[UIApplication sharedApplication] openURL:phoneUrl];
-//        
-//    } else
-//        
-//    {
-//        
-//        UIAlertView  *calert = [[UIAlertView alloc]initWithTitle:@"Alert"message:@"Call facility is not available!!!" delegate:nil cancelButtonTitle:@"ok"otherButtonTitles:nil, nil];
-//        
-//        [calert show];
-//        
-//    }
-    //[self layoutViewsForIPhone6];
-    //call layout method for Iphone 5, 5C, and 5S
-    //[self layoutForIphone5];
+}
+
+//-(void)loadingOverlay
+//{
+//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.labelText = @"Loading";
+//}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 -(void)layoutForIphone4
@@ -115,6 +107,7 @@
     [self.view addSubview:_registerButton];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)layoutForIphone5
@@ -167,6 +160,7 @@
     [self.view addSubview:_registerButton];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)layoutViewsForIPhone6
@@ -175,11 +169,11 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [self.view addSubview:_imgView];
     
-    //    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
-    //    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
-    //    [_imgView addSubview:_logoView];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 295, 128)];
+    _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
+    [_imgView addSubview:_logoView];
     
-    _userField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 255, 30)];
+    _userField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
     _userField.placeholder = @"Username";
     _userField.textAlignment = NSTextAlignmentCenter;
     _userField.layer.borderWidth = 1.0;
@@ -219,6 +213,7 @@
     [self.view addSubview:_registerButton];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)layoutViewsForIPhone6Plus
@@ -271,6 +266,7 @@
     [self.view addSubview:_registerButton];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -299,6 +295,7 @@
             [self performSegueWithIdentifier:@"toProspectList" sender:self];
             _userField.text = nil;
             _passField.text = nil;
+            //[hud hide:YES];
         }
         else
         {
@@ -306,6 +303,7 @@
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
+            //[hud hide:YES];
         }
     }];
 }

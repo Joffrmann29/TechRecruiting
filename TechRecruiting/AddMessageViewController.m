@@ -2,7 +2,7 @@
 //  AddMessageViewController.m
 //  TechRecruiting
 //
-//  Created by Joffrey Mann on 6/4/15.
+//  Created by Augustus Wilson on 6/4/15.
 //  Copyright (c) 2015 Nutech. All rights reserved.
 //
 
@@ -48,6 +48,14 @@
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,11 +82,11 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 240, 128)];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(50, 20, 240, 128)];
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(30, 212, 255, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(42, 212, 255, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -89,7 +97,7 @@
     _firstNameField.text = _prospect[FirstName];
     [_scrollView addSubview:_firstNameField];
     
-    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(30, _firstNameField.frame.origin.y+94, 255, 30)];
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(42, _firstNameField.frame.origin.y+94, 255, 30)];
     _emailField.placeholder = @"E-mail";
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.layer.borderWidth = 1.0;
@@ -100,7 +108,7 @@
     _emailField.text = _prospect[Email];
     [_scrollView addSubview:_emailField];
     
-    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(30, _emailField.frame.origin.y+94, 255, 30)];
+    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(42, _emailField.frame.origin.y+94, 255, 30)];
     _subjectField.placeholder = @"Subject";
     _subjectField.textAlignment = NSTextAlignmentCenter;
     _subjectField.layer.borderWidth = 1.0;
@@ -110,7 +118,7 @@
     _subjectField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_subjectField];
     
-    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(30, _subjectField.frame.origin.y+94, 255, 200)];
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(42, _subjectField.frame.origin.y+94, 255, 200)];
     _messageTextView.layer.borderWidth = 1.0;
     _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _messageTextView.layer.cornerRadius = 10.0;
@@ -168,7 +176,7 @@
     _subjectField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_subjectField];
     
-    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _subjectField.frame.origin.y+94, 255, 200)];
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(62, _subjectField.frame.origin.y+94, 255, 200)];
     _messageTextView.layer.borderWidth = 1.0;
     _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _messageTextView.layer.cornerRadius = 10.0;
@@ -190,11 +198,11 @@
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
-    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, 334, 128)];
+    _logoView = [[UIImageView alloc]initWithFrame:CGRectMake(55, 20, 338, 128)];
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 294, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(62, 212, 294, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -205,7 +213,7 @@
     _firstNameField.text = _prospect[FirstName];
     [_scrollView addSubview:_firstNameField];
     
-    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _firstNameField.frame.origin.y+94, 294, 30)];
+    _emailField = [[UITextField alloc]initWithFrame:CGRectMake(62, _firstNameField.frame.origin.y+94, 294, 30)];
     _emailField.placeholder = @"E-mail";
     _emailField.textAlignment = NSTextAlignmentCenter;
     _emailField.layer.borderWidth = 1.0;
@@ -216,7 +224,7 @@
     _emailField.text = _prospect[Email];
     [_scrollView addSubview:_emailField];
     
-    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 294, 30)];
+    _subjectField = [[UITextField alloc]initWithFrame:CGRectMake(62, _emailField.frame.origin.y+94, 294, 30)];
     _subjectField.placeholder = @"Subject";
     _subjectField.textAlignment = NSTextAlignmentCenter;
     _subjectField.layer.borderWidth = 1.0;
@@ -226,14 +234,14 @@
     _subjectField.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_subjectField];
     
-    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _subjectField.frame.origin.y+94, 294, 200)];
+    _messageTextView = [[UITextView alloc]initWithFrame:CGRectMake(63, _subjectField.frame.origin.y+94, 294, 200)];
     _messageTextView.layer.borderWidth = 1.0;
     _messageTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _messageTextView.layer.cornerRadius = 10.0;
     _messageTextView.clipsToBounds = YES;
     _messageTextView.backgroundColor = [UIColor whiteColor];
     _messageTextView.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
-     _messageTextView.text = @"Enter Message ...";
+    _messageTextView.text = @"Enter Message ...";
     _messageTextView.font = [UIFont fontWithName:@"Helvetica" size:17.0];
     [_scrollView addSubview:_messageTextView];
     
@@ -265,14 +273,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)cancelSend:(id)sender
 {

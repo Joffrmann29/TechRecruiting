@@ -10,9 +10,12 @@
 
 @interface MessagesListViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation MessagesListViewController
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +26,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self performProspectQuery];
+    [self loadingOverlay];
+}
+
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
 }
 
 -(void)performProspectQuery
@@ -39,12 +49,14 @@
             _messages = [objects mutableCopy];
             [self.tableView reloadData];
             NSLog(@"%@", _messages);
+            [_myHud hide:YES];
         }
         else {
             NSLog(@"%@", error);
             NSString *errorString = [NSString stringWithFormat:@"%@", error];
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
+            [_myHud hide:YES];
         }
     }];
 }

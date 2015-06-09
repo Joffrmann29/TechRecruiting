@@ -17,6 +17,8 @@
 #import "AddCallViewController.h"
 #import "MessagesListViewController.h"
 #import "EditProspectViewController.h"
+#import "MBProgressHUD.h"
+#import "CallLogListViewController.h"
 
 @interface ProspectDetailViewController : UIViewController<UIScrollViewDelegate, MFMailComposeViewControllerDelegate, AddMessageDelegate>
 
@@ -39,6 +41,5 @@
 @property (strong, nonatomic) PFObject *prospect;
 
 -(void)callProspect:(UIButton *)sender;
--(void)emailProspect:(UIButton *)sender;
 
 @end

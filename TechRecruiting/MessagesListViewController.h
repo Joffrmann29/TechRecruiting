@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "MessageDetailViewController.h"
+#import "MBProgressHUD.h"
 
 @interface MessagesListViewController : UITableViewController
 

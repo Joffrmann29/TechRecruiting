@@ -147,13 +147,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B49668CD1B27282F004817A7 /* MBProgressHUD */ = {
+		B49668CD1B27282F004817A7 /* MBProgressHud */ = {
 			isa = PBXGroup;
 			children = (
 				B4A08CFD1B18F78A006B0178 /* MBProgressHUD.h */,
 				B4A08CFE1B18F78A006B0178 /* MBProgressHUD.m */,
 			);
-			name = MBProgressHUD;
+			name = MBProgressHud;
 			sourceTree = "<group>";
 		};
 		B49668CE1B272846004817A7 /* Defines */ = {
@@ -249,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				B49668D31B272FA7004817A7 /* AppDelegate */,
-				B49668CD1B27282F004817A7 /* MBProgressHUD */,
+				B49668CD1B27282F004817A7 /* MBProgressHud */,
 				B49668CE1B272846004817A7 /* Defines */,
 				B49668CF1B272DEC004817A7 /* UserManagement */,
 				B49668D01B272E38004817A7 /* ProspectControllers */,

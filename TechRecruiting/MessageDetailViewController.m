@@ -36,7 +36,7 @@
     }
     
     else if([[appDelegate platformString]isEqualToString:@"iPhone 5"] || [[appDelegate platformString]isEqualToString:@"iPhone 5C"] || [[appDelegate platformString]isEqualToString:@"iPhone 5S"]){
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.8);
+        self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.8);
         //call layout method for Iphone 5, 5C, and 5S
         [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
     }
@@ -45,15 +45,17 @@
     {
         [self layoutForIPhone4S];
     }
+    
+    self.navigationItem.title = @"E-mail Detail";
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    if (sender.contentOffset.x != 0) {
-        CGPoint offset = sender.contentOffset;
-        offset.x = 0;
-        sender.contentOffset = offset;
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)sender {
+//    if (sender.contentOffset.x != 0) {
+//        CGPoint offset = sender.contentOffset;
+//        offset.x = 0;
+//        sender.contentOffset = offset;
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -97,10 +99,22 @@
     _addressLabel.numberOfLines = 0;
     _addressLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _message[@"Address"]];
     [_scrollView addSubview:_addressLabel];
+    
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _addressLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _message[@"DateSent"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
 }
 
 -(void)layoutForIPhone6
 {
+    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.6);
+    
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
@@ -130,6 +144,16 @@
     _addressLabel.numberOfLines = 0;
     _addressLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _message[@"Address"]];
     [_scrollView addSubview:_addressLabel];
+    
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _addressLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _message[@"DateSent"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
 }
 
 -(void)layoutForIphone6Plus
@@ -163,6 +187,16 @@
     _addressLabel.numberOfLines = 0;
     _addressLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _message[@"Address"]];
     [_scrollView addSubview:_addressLabel];
+    
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _addressLabel.frame.origin.y+94, 294, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _message[@"DateSent"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
 }
 
 /*

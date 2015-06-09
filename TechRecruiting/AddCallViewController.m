@@ -10,9 +10,13 @@
 
 @interface AddCallViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation AddCallViewController
+
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,6 +50,12 @@
     {
         [self layoutForIPhone4S];
     }
+}
+
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -171,7 +181,7 @@
 
 -(void)layoutForIphone6PlusWithContentSize:(CGSize)contentSize
 {
-    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1300)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
     
@@ -276,6 +286,7 @@
     callObject[@"FirstName"] = _prospect[@"FirstName"];
     callObject[@"LastName"] = _prospect[@"LastName"];
     callObject[@"PhoneNumber"] = _phone;
+    callObject[@"DateCalled"] = [NSDate date];
     
     PFRelation *propsectRelation = [callObject relationForKey:@"ProspectForCall"];
     [propsectRelation addObject:_prospect];
@@ -288,12 +299,14 @@
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Call Saved" message:@"The call has been successfuly saved to your call list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
+            [_myHud hide:YES];
         }
         
         else
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Save Call" message:@"The call was not saved to your call list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
+            [_myHud hide:YES];
         }
     }];
 }
@@ -301,6 +314,7 @@
 - (void)saveCall:(id)sender
 {
     [self saveCallObject];
+    [self loadingOverlay];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

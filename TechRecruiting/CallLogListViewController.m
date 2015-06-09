@@ -10,9 +10,12 @@
 
 @interface CallLogListViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation CallLogListViewController
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +26,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self performProspectQuery];
+    [self loadingOverlay];
+}
+
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,19 +45,21 @@
     [prospectQuery whereKey:@"User" equalTo:[PFUser currentUser]];
     if(_prospectMode == YES)
     {
-        [prospectQuery whereKey:@"Prospect" equalTo:_prospect];
+        [prospectQuery whereKey:@"ProspectForCall" equalTo:_prospect];
     }
     [prospectQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             _callLogArray = [objects mutableCopy];
             [self.tableView reloadData];
             NSLog(@"Phone Number****%@", _callLogArray);
+            [_myHud hide:YES];
         }
         else {
             NSLog(@"%@", error);
             NSString *errorString = [NSString stringWithFormat:@"%@", error];
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
+            [_myHud hide:YES];
         }
     }];
 }

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "CallLogDetailViewController.h"
+#import "MBProgressHUD.h"
 
 @interface CallLogListViewController : UITableViewController
 

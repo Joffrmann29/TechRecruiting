@@ -13,6 +13,7 @@
 @end
 
 @implementation AddProspectViewController
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,12 +21,11 @@
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:_scrollView];
     self.scrollView.delegate = self;
-    
+    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.7);
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     
     NSLog(@"%@", [appDelegate platformString]);
     if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
         //call layout method for Iphone 6 Plus
         [self layoutForIphone6PlusWithContentSize:self.scrollView.contentSize];
     }
@@ -36,7 +36,6 @@
     }
     
     else if([[appDelegate platformString]isEqualToString:@"iPhone 5"] || [[appDelegate platformString]isEqualToString:@"iPhone 5C"] || [[appDelegate platformString]isEqualToString:@"iPhone 5S"]){
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.8);
         //call layout method for Iphone 5, 5C, and 5S
         [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
     }
@@ -47,13 +46,19 @@
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    if (sender.contentOffset.x != 0) {
-        CGPoint offset = sender.contentOffset;
-        offset.x = 0;
-        sender.contentOffset = offset;
-    }
-}
+//-(void)loadingOverlay
+//{
+//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.labelText = @"Loading";
+//}
+
+//- (void)scrollViewDidScroll:(UIScrollView *)sender {
+//    if (sender.contentOffset.x != 0) {
+//        CGPoint offset = sender.contentOffset;
+//        offset.x = 0;
+//        sender.contentOffset = offset;
+//    }
+//}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -99,7 +104,7 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 200, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 200, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -159,12 +164,11 @@
     [_scrollView addSubview:_textView];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)layoutForIPhone6
 {
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
-    
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
@@ -173,7 +177,7 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 255, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -233,6 +237,7 @@
     [_scrollView addSubview:_textView];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 
@@ -308,6 +313,7 @@
     [_scrollView addSubview:_textView];
     
     [self setTextFieldDelegates];
+    //[self loadingOverlay];
 }
 
 -(void)setTextFieldDelegates
@@ -346,14 +352,29 @@
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Prospect Added" message:@"The prospect has been successfuly added to your recruting list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
+            //[hud hide:YES];
         }
         
         else
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Add Prospect" message:@"The prospect was not added to your recruiting list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
+            //[hud hide:YES];
         }
     }];
+}
+
+-(BOOL)fieldsEmpty
+{
+    if([_firstNameField.text isEqualToString:@""] || [_lastNameField.text isEqualToString:@""] || [_phoneField.text isEqualToString:@""] || [_secondaryPhoneField.text isEqualToString:@""] || [_emailField.text isEqualToString:@""] || [_textView.text isEqualToString:@""])
+    {
+        return YES;
+    }
+    
+    else
+    {
+        return NO;
+    }
 }
 
 - (IBAction)cancelAdd:(id)sender
@@ -363,7 +384,17 @@
 
 - (IBAction)addProspectToParse:(id)sender
 {
-    [self addProspectObject];
+    if([self fieldsEmpty] == NO)
+    {
+        [self addProspectObject];
+    }
+    
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must fill out all information." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alertView show];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

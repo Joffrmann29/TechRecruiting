@@ -27,7 +27,7 @@
     NSLog(@"%@", [appDelegate platformString]);
     if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
         //call layout method for Iphone 6 Plus
-        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
+        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.4);
         [self layoutForIphone6Plus];
     }
     
@@ -37,7 +37,7 @@
     }
     
     else if([[appDelegate platformString]isEqualToString:@"iPhone 5"] || [[appDelegate platformString]isEqualToString:@"iPhone 5C"] || [[appDelegate platformString]isEqualToString:@"iPhone 5S"]){
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.8);
+        self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.8);
         //call layout method for Iphone 5, 5C, and 5S
         [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
     }
@@ -46,6 +46,8 @@
     {
         [self layoutForIPhone4S];
     }
+    
+    self.navigationItem.title = @"Call Detail";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +95,17 @@
     _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
     [_scrollView addSubview:_resultLabel];
     
-    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 200)];
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _call[@"DateCalled"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _dateLabel.frame.origin.y+94, 255, 200)];
     _notesTextView.layer.borderWidth = 1.0;
     _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _notesTextView.layer.cornerRadius = 10.0;
@@ -107,6 +119,8 @@
 
 -(void)layoutForIPhone6
 {
+    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.5);
+    
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
     [_scrollView addSubview:_imgView];
@@ -131,7 +145,17 @@
     _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
     [_scrollView addSubview:_resultLabel];
     
-    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 200)];
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _call[@"DateCalled"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _dateLabel.frame.origin.y+94, 255, 200)];
     _notesTextView.layer.borderWidth = 1.0;
     _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _notesTextView.layer.cornerRadius = 10.0;
@@ -169,7 +193,17 @@
     _resultLabel.text = [NSString stringWithFormat:@"Result:         %@", _call[@"Result"]];
     [_scrollView addSubview:_resultLabel];
     
-    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 294, 200)];
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 294, 46)];
+    _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
+    _dateLabel.numberOfLines = 0;
+    NSDate *createdDate = _call[@"DateCalled"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM-dd-yyyy @ hh:mm"];
+    NSString *stringFromDate = [formatter stringFromDate:createdDate];
+    _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
+    [_scrollView addSubview:_dateLabel];
+    
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _dateLabel.frame.origin.y+94, 294, 200)];
     _notesTextView.layer.borderWidth = 1.0;
     _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _notesTextView.layer.cornerRadius = 10.0;

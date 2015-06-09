@@ -11,6 +11,7 @@
 #import "Defines.h"
 #import "ProspectDetailViewController.h"
 #import "LoginViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ProspectListViewController : UITableViewController<UIActionSheetDelegate>
 

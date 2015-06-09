@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "MBProgressHUD.h"
+//#import "MBProgressHUD.h"
 #import "AppDelegate.h"
 
 @interface RegistrationViewController : UIViewController<UITextFieldDelegate, UIScrollViewDelegate>

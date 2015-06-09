@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UILabel *natureLabel;
 @property (strong, nonatomic) UILabel *durationLabel;
 @property (strong, nonatomic) UILabel *resultLabel;
+@property (strong, nonatomic) UILabel *dateLabel;
 @property (strong, nonatomic) UITextView *notesTextView;
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIImageView *logoView;

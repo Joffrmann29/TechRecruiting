@@ -26,7 +26,7 @@
     
     NSLog(@"%@", [appDelegate platformString]);
     if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.3);
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.65);
         //call layout method for Iphone 6 Plus
         [self layoutForIphone6PlusWithContentSize:self.scrollView.contentSize];
     }
@@ -46,7 +46,7 @@
     {
         [self layoutForIPhone4S];
     }
-    
+        
     _firstNameField.text = _prospect[FirstName];
     _lastNameField.text = _prospect[LastName];
     _phoneField.text = _prospect[Phone];
@@ -107,7 +107,7 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 200, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 200, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;
@@ -171,7 +171,7 @@
 
 -(void)layoutForIPhone6
 {
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.6);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.5);
     
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];
@@ -181,7 +181,7 @@
     _logoView.image = [UIImage imageNamed:@"NutechLogo.png"];
     [_imgView addSubview:_logoView];
     
-    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 128, 255, 30)];
+    _firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(60, 212, 255, 30)];
     _firstNameField.placeholder = @"First Name";
     _firstNameField.textAlignment = NSTextAlignmentCenter;
     _firstNameField.layer.borderWidth = 1.0;

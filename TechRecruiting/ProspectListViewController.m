@@ -10,9 +10,12 @@
 
 @interface ProspectListViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation ProspectListViewController
+//MBProgressHUD *hud;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,9 +32,16 @@
 {
     [super viewWillAppear:YES];
     [self performProspectQuery];
+    [self loadingOverlay];
     
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.hidesBackButton = YES;
+}
+
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
 }
 
 -(void)performProspectQuery
@@ -43,12 +53,14 @@
             _prospects = [objects mutableCopy];
             [self.tableView reloadData];
             NSLog(@"%@", _prospects);
+            [_myHud hide:YES];
         }
         else {
             NSLog(@"%@", error);
             NSString *errorString = [NSString stringWithFormat:@"%@", error];
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
+            [_myHud hide:YES];
         }
     }];
 }
