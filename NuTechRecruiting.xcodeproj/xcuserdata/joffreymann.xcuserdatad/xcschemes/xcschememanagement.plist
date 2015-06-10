@@ -4,6 +4,18 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TechRecruiting 2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>TechRecruiting 4.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>TechRecruiting.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

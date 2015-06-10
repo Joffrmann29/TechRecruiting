@@ -10,6 +10,8 @@
 
 @interface LoginViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation LoginViewController
@@ -44,11 +46,11 @@
     }
 }
 
-//-(void)loadingOverlay
-//{
-//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    hud.labelText = @"Loading";
-//}
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -286,6 +288,7 @@
 }
 
 - (void)loginToTechRecruiting:(id)sender {
+    [self loadingOverlay];
     [PFUser logInWithUsernameInBackground:self.userField.text password:self.passField.text block:^(PFUser *user, NSError *error) {
         if (user)
         {
@@ -295,7 +298,7 @@
             [self performSegueWithIdentifier:@"toProspectList" sender:self];
             _userField.text = nil;
             _passField.text = nil;
-            //[hud hide:YES];
+            [_myHud hide:YES];
         }
         else
         {
@@ -303,7 +306,7 @@
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            //[hud hide:YES];
+            [_myHud hide:YES];
         }
     }];
 }

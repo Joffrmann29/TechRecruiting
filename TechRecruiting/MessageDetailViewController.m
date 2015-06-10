@@ -100,7 +100,7 @@
     _addressLabel.text = [NSString stringWithFormat:@"E-mail:    %@", _message[@"Address"]];
     [_scrollView addSubview:_addressLabel];
     
-    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _addressLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _addressLabel.frame.origin.y+94, 255, 46)];
     _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _dateLabel.numberOfLines = 0;
     NSDate *createdDate = _message[@"DateSent"];
@@ -113,7 +113,7 @@
 
 -(void)layoutForIPhone6
 {
-    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.6);
+    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.2);
     
     _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1250)];
     _imgView.image = [UIImage imageNamed:@"offWhiteGradientBG.jpg"];

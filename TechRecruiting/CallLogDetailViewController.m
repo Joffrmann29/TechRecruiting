@@ -27,7 +27,7 @@
     NSLog(@"%@", [appDelegate platformString]);
     if([[appDelegate platformString]isEqualToString:@"iPhone 6 Plus"]){
         //call layout method for Iphone 6 Plus
-        _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height*1.4);
+        _scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.4);
         [self layoutForIphone6Plus];
     }
     
@@ -55,17 +55,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    if (sender.contentOffset.x != 0) {
-        CGPoint offset = sender.contentOffset;
-        offset.x = 0;
-        sender.contentOffset = offset;
-    }
-}
-
 -(void)layoutForIPhone4S
 {
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*1.3);
+    self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.3);
     [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
 }
 
@@ -87,15 +79,15 @@
     
     _durationLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _natureLabel.frame.origin.y+94, 255, 46)];
     _durationLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
-    _durationLabel.text = [NSString stringWithFormat:@"Subject:         %@", _call[@"Subject"]];;
+    _durationLabel.text = [NSString stringWithFormat:@"Duration:         %@", _call[@"Duration"]];;
     [_scrollView addSubview:_durationLabel];
     
     _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _durationLabel.frame.origin.y+94, 255, 46)];
     _resultLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
-    _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
+    _resultLabel.text = [NSString stringWithFormat:@"Result:         %@", _call[@"Result"]];
     [_scrollView addSubview:_resultLabel];
     
-    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 46)];
+    _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, _resultLabel.frame.origin.y+94, 255, 46)];
     _dateLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
     _dateLabel.numberOfLines = 0;
     NSDate *createdDate = _call[@"DateCalled"];
@@ -105,7 +97,7 @@
     _dateLabel.text = [NSString stringWithFormat:@"Date:    %@", stringFromDate];
     [_scrollView addSubview:_dateLabel];
     
-    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(60, _dateLabel.frame.origin.y+94, 255, 200)];
+    _notesTextView = [[UITextView alloc]initWithFrame:CGRectMake(30, _dateLabel.frame.origin.y+94, 255, 200)];
     _notesTextView.layer.borderWidth = 1.0;
     _notesTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _notesTextView.layer.cornerRadius = 10.0;
@@ -137,12 +129,12 @@
     
     _durationLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _natureLabel.frame.origin.y+94, 255, 46)];
     _durationLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
-    _durationLabel.text = [NSString stringWithFormat:@"Subject:         %@", _call[@"Subject"]];;
+    _durationLabel.text = [NSString stringWithFormat:@"Duration:         %@", _call[@"Duration"]];;
     [_scrollView addSubview:_durationLabel];
     
     _resultLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _durationLabel.frame.origin.y+94, 255, 46)];
     _resultLabel.textColor = [UIColor colorWithRed:155.0f / 255.0f green:29.0f / 255.0f blue:35.0f / 255.0f alpha:1.0f];
-    _resultLabel.text = [NSString stringWithFormat:@"Body:         %@", _call[@"Body"]];
+    _resultLabel.text = [NSString stringWithFormat:@"Result:         %@", _call[@"Result"]];
     [_scrollView addSubview:_resultLabel];
     
     _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(60, _resultLabel.frame.origin.y+94, 255, 46)];

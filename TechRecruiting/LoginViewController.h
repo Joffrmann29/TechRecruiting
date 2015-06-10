@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
-//#import "MBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface LoginViewController : UIViewController<UITextFieldDelegate>
 

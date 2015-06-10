@@ -10,6 +10,8 @@
 
 @interface RegistrationViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation RegistrationViewController
@@ -47,15 +49,14 @@
     {
         self.scrollView.contentSize = CGSizeMake(self.view.frame.size.height, self.view.frame.size.height*2.2);
         [self layoutForIphone4S];
-        
     }
 }
 
-//-(void)loadingOverlay
-//{
-//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    hud.labelText = @"Loading";
-//}
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     if (sender.contentOffset.x != 0) {
@@ -330,13 +331,13 @@
     newUser[@"email"] = self.emailField.text;
     newUser[@"ConfirmPassword"] = self.confirmPasswordField.text;
 
-    
+    [self loadingOverlay];
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             [self dismissViewControllerAnimated:YES completion:^{
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"Your recruiter account has been successfully created" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
-                //[hud hide:YES];
+                [_myHud hide:YES];
             }];
         }
         else{
@@ -344,7 +345,7 @@
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            //[hud hide:YES];
+            [_myHud hide:YES];
         }
     }];
 }

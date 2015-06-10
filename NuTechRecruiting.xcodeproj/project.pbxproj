@@ -18,6 +18,7 @@
 		B40626B01B21041100CCD7DD /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626AF1B21041100CCD7DD /* Email.png */; };
 		B40626B31B2108DE00CCD7DD /* AddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B40626B21B2108DE00CCD7DD /* AddMessageViewController.m */; };
 		B40626B51B224AF200CCD7DD /* MenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B40626B41B224AF200CCD7DD /* MenuIcon.png */; };
+		B42292E31B28C5220087EF54 /* Nutech60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B42292E21B28C5220087EF54 /* Nutech60@2x.png */; };
 		B49668C71B23628B004817A7 /* AddCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49668C61B23628B004817A7 /* AddCallViewController.m */; };
 		B49668C91B264B6A004817A7 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = B49668C81B264B6A004817A7 /* Edit.png */; };
 		B49668CC1B264D9D004817A7 /* EditProspectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B49668CB1B264D9D004817A7 /* EditProspectViewController.m */; };
@@ -67,6 +68,7 @@
 		B40626B11B2108DE00CCD7DD /* AddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMessageViewController.h; sourceTree = "<group>"; };
 		B40626B21B2108DE00CCD7DD /* AddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMessageViewController.m; sourceTree = "<group>"; };
 		B40626B41B224AF200CCD7DD /* MenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuIcon.png; sourceTree = "<group>"; };
+		B42292E21B28C5220087EF54 /* Nutech60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nutech60@2x.png"; sourceTree = "<group>"; };
 		B49668C51B23628B004817A7 /* AddCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCallViewController.h; sourceTree = "<group>"; };
 		B49668C61B23628B004817A7 /* AddCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCallViewController.m; sourceTree = "<group>"; };
 		B49668C81B264B6A004817A7 /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Edit.png; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				B40626A21B20B75900CCD7DD /* Nutech40@2x.png */,
 				B40626A31B20B75900CCD7DD /* Nutech40@3x.png */,
 				B40626A41B20B75900CCD7DD /* Nutech60@3x.png */,
+				B42292E21B28C5220087EF54 /* Nutech60@2x.png */,
 				B40626A51B20B75900CCD7DD /* Nutech29@2x.png */,
 				B4F38DF51B1F8A9300A5BEE5 /* offWhiteGradientBG.jpg */,
 				B4F38DF91B1FDEA900A5BEE5 /* NutechLogo.png */,
@@ -360,7 +363,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B4A08CA71B1793A6006B0178 /* Build configuration list for PBXProject "TechRecruiting" */;
+			buildConfigurationList = B4A08CA71B1793A6006B0178 /* Build configuration list for PBXProject "NuTechRecruiting" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -393,6 +396,7 @@
 				B4A08CC01B1793A6006B0178 /* LaunchScreen.xib in Resources */,
 				B40626AE1B20F1B800CCD7DD /* Phone.png in Resources */,
 				B40626AA1B20B75900CCD7DD /* Nutech29@2x.png in Resources */,
+				B42292E31B28C5220087EF54 /* Nutech60@2x.png in Resources */,
 				B40626A91B20B75900CCD7DD /* Nutech60@3x.png in Resources */,
 				B4A08CBD1B1793A6006B0178 /* Images.xcassets in Resources */,
 				B4F38DFA1B1FDEA900A5BEE5 /* NutechLogo.png in Resources */,
@@ -595,7 +599,7 @@
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "52df2746-c479-4b97-a992-2dd7a966bb24";
 			};
 			name = Debug;
 		};
@@ -609,7 +613,7 @@
 				INFOPLIST_FILE = TechRecruiting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "52df2746-c479-4b97-a992-2dd7a966bb24";
 			};
 			name = Release;
 		};
@@ -650,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B4A08CA71B1793A6006B0178 /* Build configuration list for PBXProject "TechRecruiting" */ = {
+		B4A08CA71B1793A6006B0178 /* Build configuration list for PBXProject "NuTechRecruiting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B4A08CCD1B1793A6006B0178 /* Debug */,

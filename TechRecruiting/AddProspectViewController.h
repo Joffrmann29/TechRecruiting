@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Defines.h"
-//#import "MBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface AddProspectViewController : UIViewController<UIScrollViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 

@@ -10,6 +10,8 @@
 
 @interface AddProspectViewController ()
 
+@property (strong, nonatomic) MBProgressHUD *myHud;
+
 @end
 
 @implementation AddProspectViewController
@@ -46,19 +48,19 @@
     }
 }
 
-//-(void)loadingOverlay
-//{
-//    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    hud.labelText = @"Loading";
-//}
+-(void)loadingOverlay
+{
+    _myHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _myHud.labelText = @"Loading";
+}
 
-//- (void)scrollViewDidScroll:(UIScrollView *)sender {
-//    if (sender.contentOffset.x != 0) {
-//        CGPoint offset = sender.contentOffset;
-//        offset.x = 0;
-//        sender.contentOffset = offset;
-//    }
-//}
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -352,14 +354,14 @@
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Prospect Added" message:@"The prospect has been successfuly added to your recruting list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
-            //[hud hide:YES];
+            [_myHud hide:YES];
         }
         
         else
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Add Prospect" message:@"The prospect was not added to your recruiting list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
-            //[hud hide:YES];
+            [_myHud hide:YES];
         }
     }];
 }
@@ -386,6 +388,7 @@
 {
     if([self fieldsEmpty] == NO)
     {
+        [self loadingOverlay];
         [self addProspectObject];
     }
     

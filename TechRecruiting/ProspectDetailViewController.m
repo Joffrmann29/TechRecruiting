@@ -29,7 +29,6 @@
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:_scrollView];
     self.scrollView.delegate = self;
-    [self layoutForIphone5WithContentSize:self.scrollView.contentSize];
 }
 
 -(void)loadingOverlay
@@ -66,14 +65,6 @@
         [self layoutForIphone4WithContentSize:self.scrollView.contentSize];
     }
 }
-
-//- (void)scrollViewDidScroll:(UIScrollView *)sender {
-//    if (sender.contentOffset.x != 0) {
-//        CGPoint offset = sender.contentOffset;
-//        offset.x = 0;
-//        sender.contentOffset = offset;
-//    }
-//}
 
 -(void)layoutForIphone4WithContentSize:(CGSize)contentSize
 {
@@ -573,6 +564,7 @@
         case MFMailComposeResultSent:
             NSLog(@"Mail sent");
             [self addMessage];
+            [self loadingOverlay];
             break;
         case MFMailComposeResultFailed:
             NSLog(@"Mail sent failure: %@", [error localizedDescription]);
