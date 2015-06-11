@@ -64,6 +64,11 @@
         self.scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*2);
         [self layoutForIphone4WithContentSize:self.scrollView.contentSize];
     }
+    
+    if([_prospect[SecondaryPhone] isEqualToString:@"N/A"])
+    {
+        _secondaryCallButton.hidden = YES;
+    }
 }
 
 -(void)layoutForIphone4WithContentSize:(CGSize)contentSize

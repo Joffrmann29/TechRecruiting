@@ -134,6 +134,7 @@
     _phoneField.layer.cornerRadius = 10.0;
     _phoneField.clipsToBounds = YES;
     _phoneField.backgroundColor = [UIColor whiteColor];
+    _phoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_phoneField];
     
     _secondaryPhoneField = [[UITextField alloc]initWithFrame:CGRectMake(60, _phoneField.frame.origin.y+94, 200, 30)];
@@ -144,6 +145,7 @@
     _secondaryPhoneField.layer.cornerRadius = 10.0;
     _secondaryPhoneField.clipsToBounds = YES;
     _secondaryPhoneField.backgroundColor = [UIColor whiteColor];
+    _secondaryPhoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_secondaryPhoneField];
     
     _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _secondaryPhoneField.frame.origin.y+94, 200, 30)];
@@ -164,6 +166,15 @@
     _textView.clipsToBounds = YES;
     _textView.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_textView];
+    
+    _secondaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 1000, 100, 30)];
+    _secondaryLabel.text = @"Enable Secondary Phone";
+    [_scrollView addSubview:_secondaryLabel];
+    
+    _secondarySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(260, _secondaryLabel.frame.origin.y, 30, 30)];
+    [_secondarySwitch setOn:YES];
+    [_secondarySwitch addTarget:self action:@selector(changeSecondaryState:) forControlEvents:UIControlEventValueChanged];
+    [_scrollView addSubview:_secondarySwitch];
     
     [self setTextFieldDelegates];
     //[self loadingOverlay];
@@ -207,6 +218,7 @@
     _phoneField.layer.cornerRadius = 10.0;
     _phoneField.clipsToBounds = YES;
     _phoneField.backgroundColor = [UIColor whiteColor];
+    _phoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_phoneField];
     
     _secondaryPhoneField = [[UITextField alloc]initWithFrame:CGRectMake(60, _phoneField.frame.origin.y+94, 255, 30)];
@@ -227,6 +239,7 @@
     _emailField.layer.cornerRadius = 10.0;
     _emailField.clipsToBounds = YES;
     _emailField.backgroundColor = [UIColor whiteColor];
+    _secondaryPhoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_emailField];
     
     _textView = [[UITextView alloc]initWithFrame:CGRectMake(60, _emailField.frame.origin.y+94, 255, 200)];
@@ -237,6 +250,15 @@
     _textView.clipsToBounds = YES;
     _textView.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_textView];
+    
+    _secondaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 1000, 130, 30)];
+    _secondaryLabel.text = @"Enable Secondary Phone";
+    [_scrollView addSubview:_secondaryLabel];
+    
+    _secondarySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(315, _secondaryLabel.frame.origin.y, 30, 30)];
+    [_secondarySwitch setOn:YES];
+    [_secondarySwitch addTarget:self action:@selector(changeSecondaryState:) forControlEvents:UIControlEventValueChanged];
+    [_scrollView addSubview:_secondarySwitch];
     
     [self setTextFieldDelegates];
     //[self loadingOverlay];
@@ -283,6 +305,7 @@
     _phoneField.layer.cornerRadius = 10.0;
     _phoneField.clipsToBounds = YES;
     _phoneField.backgroundColor = [UIColor whiteColor];
+    _phoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_phoneField];
     
     _secondaryPhoneField = [[UITextField alloc]initWithFrame:CGRectMake(60, _phoneField.frame.origin.y+94, 294, 30)];
@@ -293,6 +316,7 @@
     _secondaryPhoneField.layer.cornerRadius = 10.0;
     _secondaryPhoneField.clipsToBounds = YES;
     _secondaryPhoneField.backgroundColor = [UIColor whiteColor];
+    _secondaryPhoneField.keyboardType = UIKeyboardTypePhonePad;
     [_scrollView addSubview:_secondaryPhoneField];
     
     _emailField = [[UITextField alloc]initWithFrame:CGRectMake(60, _secondaryPhoneField.frame.origin.y+94, 294, 30)];
@@ -314,6 +338,14 @@
     _textView.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_textView];
     
+    _secondaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 1000, 160, 30)];
+    _secondaryLabel.text = @"Enable Secondary Phone";
+    [_scrollView addSubview:_secondaryLabel];
+    
+    _secondarySwitch = [[UISwitch alloc]initWithFrame:CGRectMake(354, _secondaryLabel.frame.origin.y, 30, 30)];
+    [_secondarySwitch setOn:YES];
+    [_secondarySwitch addTarget:self action:@selector(changeSecondaryState:) forControlEvents:UIControlEventValueChanged];
+    [_scrollView addSubview:_secondarySwitch];
     [self setTextFieldDelegates];
     //[self loadingOverlay];
 }
@@ -326,6 +358,19 @@
     _secondaryPhoneField.delegate = self;
     _emailField.delegate = self;
     _textView.delegate = self;
+}
+
+- (void)changeSecondaryState:(id)sender {
+    if(!_secondarySwitch.isOn)
+    {
+        _secondaryPhoneField.text = @"N/A";
+        _secondaryPhoneField.enabled = NO;
+    }
+    
+    else
+    {
+        _secondaryPhoneField.enabled = YES;
+    }
 }
 
 /*
@@ -344,7 +389,17 @@
     prospectObject[FirstName] = _firstNameField.text;
     prospectObject[LastName] = _lastNameField.text;
     prospectObject[Phone] = _phoneField.text;
-    prospectObject[SecondaryPhone] = _secondaryPhoneField.text;
+    
+//    if(![_secondaryPhoneField.text isEqualToString:@"N/A"])
+//    {
+//        prospectObject[SecondaryPhone] = _secondaryPhoneField.text;
+//    }
+//    
+//    else
+//    {
+//        prospectObject[SecondaryPhone] = @"N/A";
+//    }
+    
     prospectObject[Email] = _emailField.text;
     prospectObject[Notes] = _textView.text;
     PFRelation *relation = [prospectObject relationForKey:USERSPROSPECTSUSER];

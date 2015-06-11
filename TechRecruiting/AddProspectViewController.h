@@ -25,5 +25,7 @@
 @property (strong, nonatomic) UITextView *textView;
 @property (strong, nonatomic) UIImageView *imgView;
 @property (strong, nonatomic) UIImageView *logoView;
+@property (strong, nonatomic) UISwitch *secondarySwitch;
+@property (strong, nonatomic) UILabel *secondaryLabel;
 
 @end
