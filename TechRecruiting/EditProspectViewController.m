@@ -351,13 +351,13 @@
     [_prospect saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(succeeded)
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Prospect Added" message:@"The prospect has been successfuly added to your recruting list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Prospect Edited" message:@"The prospect has been successfuly edited in your recruting list." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
         }
         
         else
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Add Prospect" message:@"The prospect was not added to your recruiting list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Failed to Add Prospect" message:@"The prospect was not successfully edited in your recruiting list. Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alertView show];
         }
     }];

@@ -347,7 +347,6 @@
     [_secondarySwitch addTarget:self action:@selector(changeSecondaryState:) forControlEvents:UIControlEventValueChanged];
     [_scrollView addSubview:_secondarySwitch];
     [self setTextFieldDelegates];
-    //[self loadingOverlay];
 }
 
 -(void)setTextFieldDelegates
@@ -390,15 +389,15 @@
     prospectObject[LastName] = _lastNameField.text;
     prospectObject[Phone] = _phoneField.text;
     
-//    if(![_secondaryPhoneField.text isEqualToString:@"N/A"])
-//    {
-//        prospectObject[SecondaryPhone] = _secondaryPhoneField.text;
-//    }
-//    
-//    else
-//    {
-//        prospectObject[SecondaryPhone] = @"N/A";
-//    }
+    if(![_secondaryPhoneField.text isEqualToString:@"N/A"])
+    {
+        prospectObject[SecondaryPhone] = _secondaryPhoneField.text;
+    }
+    
+    else
+    {
+        prospectObject[SecondaryPhone] = @"N/A";
+    }
     
     prospectObject[Email] = _emailField.text;
     prospectObject[Notes] = _textView.text;

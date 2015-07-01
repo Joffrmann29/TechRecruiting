@@ -7,12 +7,18 @@
 //
 
 #import "AppDelegate.h"
+#import "OnboardingViewController.h"
+#import "OnboardingContentViewController.h"
+#import "LoginViewController.h"
+
+static NSString * const kUserHasOnboardedKey = @"user_has_onboarded";
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+BOOL userHasOnboarded;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -30,7 +36,83 @@
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     
+    // determine if the user has onboarded yet or not
+    userHasOnboarded = [[NSUserDefaults standardUserDefaults] boolForKey:kUserHasOnboardedKey];
+    
+    // if the user has already onboarded, just set up the normal root view controller
+    // for the application, but don't animate it because there's no transition in this case
+    if (userHasOnboarded) {
+        [self showFirstScreen];
+    }
+    
+    // otherwise set the root view controller to the onboarding view controller
+    else {
+        self.window.rootViewController = [self generateFirstDemoVC];
+    }
     return YES;
+}
+
+- (void)handleOnboardingCompletion {
+    // set that we have completed onboarding so we only do it once... for demo
+    // purposes we don't want to have to set this every time so I'll just leave
+    // this here...
+    //    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserHasOnboardedKey];
+    
+    // animate the transition to the main application
+    [self setupNormalRootViewControllerAnimated:YES];
+}
+
+- (OnboardingViewController *)generateFirstDemoVC {
+    OnboardingContentViewController *firstPage = [OnboardingContentViewController contentWithTitle:@"Welcome to Nutech Recruiting" body:@"Manage your candidate database more efficiently in one location." image:[UIImage imageNamed:@"blue"] buttonText:nil action:^{nil;
+    }];
+    
+    OnboardingContentViewController *secondPage = [OnboardingContentViewController contentWithTitle:@"View specific details and statuses of each candidate." body:@"You can e-mail and call candidates from within the app and log all communication info." image:[UIImage imageNamed:@"red"] buttonText:nil action:^{nil;
+    }];
+    secondPage.movesToNextViewController = YES;
+    secondPage.viewDidAppearBlock = ^{nil;
+    };
+    
+    OnboardingContentViewController *thirdPage = [OnboardingContentViewController contentWithTitle:@"Custom E-mail Form" body:@"Our custom e-mail form helps users efficiently send e-mails." image:[UIImage imageNamed:@"yellow"] buttonText:@"Get Started" action:^{
+        [self handleOnboardingCompletion];
+    }];
+    
+    OnboardingViewController *onboardingVC = [OnboardingViewController onboardWithBackgroundImage:[UIImage imageNamed:@"ProspectList.png"] contents:@[firstPage, secondPage, thirdPage]];
+    onboardingVC.shouldFadeTransitions = YES;
+    onboardingVC.fadePageControlOnLastPage = YES;
+    
+    // If you want to allow skipping the onboarding process, enable skipping and set a block to be executed
+    // when the user hits the skip button.
+    onboardingVC.allowSkipping = YES;
+    onboardingVC.skipHandler = ^{
+        [self handleOnboardingCompletion];
+    };
+    
+    return onboardingVC;
+}
+    
+- (void)setupNormalRootViewControllerAnimated:(BOOL)animated {
+        // create whatever your root view controller is going to be, in this case just a simple view controller
+        // wrapped in a navigation controller
+        LoginViewController *mainVC = [LoginViewController new];
+    
+        // if we want to animate the transition, do it
+        if (animated) {
+            [UIView transitionWithView:self.window duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                [self showFirstScreen];
+            } completion:nil];
+        }
+        
+        // otherwise just set the root view controller normally without animation
+        else {
+            self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+        }
+}
+
+-(void)showFirstScreen {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:kUserHasOnboardedKey];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
